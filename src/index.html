@@ -1,15 +1,396 @@
 <!DOCTYPE html>
-@@include('components/page-blocks/_head.html',{
-"lang":"en",
-"title":"Easy-webdev-startpack v3.0",
-"description":"Gulp pack for easy html/php markup development",
-"keywords":"",
-"favicon":"img/favicons/favicon",
-})
+@@include('components/page-blocks/_head.html')
 
 <body>
 	@@include('components/page-blocks/_header.html')
-	<main class="main"></main>
+	<main class="main">
+		
+		<section class="l-banner">
+			<div class="l-banner__wrapper">
+				<div class="l-banner__image">
+					<img src="/img/alfa24_banner.webp" alt="">
+				</div>
+				<div class="l-banner__content">
+					<div class="l-banner__title">
+						<h1 class="fs-42-700 text-white">Алюминиевые окна</h1>
+					</div>
+					<div class="l-banner__subtitle">
+						<h3 class="fs-16-400 text-white">Для уютного интерьера и стильного экстерьера. Алюминиевые окна изготавливаются под заказ и служат более 50 лет. При производстве используются энергоэффективные стеклопакеты и взломостойкая фурнитура.</h3>
+					</div>
+					<div class="l-banner__action">
+						<a class="btn btn-blue" href="#">Узнать стоимость</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="l-products">
+			<div class="l-wrapper">
+				<div class="l-products__header">
+					<div class="l-products__header-title">
+						<h2 class="fs-32-700">«АЛЮТЕХ» предлагает</h2>
+					</div>
+					<div class="l-products__header-subtitle">
+						<h4 class="fs-16-300">
+							Прочные и долговечные окна из алюминия. Они устойчивы к неблагоприятным погодным условиям, безопасны в использовании и неприхотливы в уходе. Форма и размеры каждого изделия подбираются индивидуально.
+						</h4>
+					</div>
+				</div>
+				<div class="l-products__nav">
+					<div class="l-products__nav-wrapper">
+						<ul>
+							<li>
+								<a href="#pr-1" class="fs-16-600">Классическое окно</a>
+							</li>
+							<li>
+								<a href="#pr-2" class="fs-16-600">Французское окно</a>
+							</li>
+							<li>
+								<a href="#pr-3" class="fs-16-600">Скрытая створка</a>
+							</li>
+							<li>
+								<a href="#pr-4" class="fs-16-600">Вентиляционаая створка</a>
+							</li>
+							<li>
+								<a href="#pr-5" class="fs-16-600">Алюмодеревянное окно</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="l-products__content">
+					@@include('components/page-blocks/_products_item.html', {
+						'revert': '',
+						'name': 'Классическое окно',
+						'descr': 'Надежная защита частного дома или квартиры от сквозняков и уличного шума. Алюминиевое остекление «АЛЮТЕХ» устойчиво к промерзанию и коррозии. На классические окна действует 3-летняя гарантия производителя.',
+						'id': '1',
+					})
+					@@include('components/page-blocks/_products_item.html', {
+						'revert': 'revert',
+						'name': 'Французское окно',
+						'descr': 'Теплые окна в пол подходят для установки в столовой, гостиной и других комнатах загородного коттеджа. При производстве используются долговечные материалы и надежная фурнитура. Французские окна гармонично дополняют экстерьер в любом стиле.',
+						'id': '2',
+					})
+					@@include('components/page-blocks/_products_item.html', {
+						'revert': '',
+						'name': 'Скрытая створка',
+						'descr': 'Лаконичное решение, которое позволит наполнить комнаты дневным светом. Окна со скрытой створкой производятся из устойчивого к коррозии алюминиевого профиля. С улицы будет видна только рама, что избавит фасад от лишних деталей.',
+						'id': '3',
+					})
+					@@include('components/page-blocks/_products_item.html', {
+						'revert': 'revert',
+						'name': 'Вентиляционная створка',
+						'descr': 'Альтернатива классическим и французским окнам. Вентиляционные створки предназначены для удобного проветривания жилых комнат и нежилых помещений. Высота изделия может быть любой, ширина — 180 мм или 280 мм.',
+						'id': '4',
+					})
+					@@include('components/page-blocks/_products_item.html', {
+						'revert': '',
+						'name': 'Алюмодеревянные окна',
+						'descr': 'При производстве используются накладки из натурального дерева, алюминиевые профили и надежные стеклопакеты. Поэтому алюминиево-деревянные окна отличаются стильным внешним видом и долгим сроком службы.',
+						'id': '5',
+					})
+				</div>
+			</div>
+		</section>
+
+		<section class="l-advice">
+			<div class="l-wrapper">
+				<div class="l-advice__content">
+					<div class="l-advice__form">
+						<div class="l-advice__form-wrapper">
+							<form action="">
+								<div class="l-advice__form-title">
+									<h2 class="fs-32-700 text-white">Нужна консультация?</h2>
+								</div>
+								<div class="l-advice__form-subtitle">
+									<h4 class="fs-16-400 text-white">Наши консультанты помогут с выбором и назовут точную стоимость.</h4>
+								</div>
+								<div class="l-advice__form-input">
+									<input type="text" class="input" placeholder="" value="+7">
+								</div>
+								<div class="l-advice__form-action">
+									<button type="submit" class="btn btn-black">Заказать звонок</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="l-blog">
+			<div class="l-wrapper">
+				<div class="l-blog__content">
+					<div class="l-blog__header">
+						<h2 class="fs-32-700">Почему алюминиевые окна вне конкуренции?</h2>
+					</div>
+					<div class="l-blog__slider">
+						<div class="swiper">
+							<div class="swiper-wrapper">
+								<div class="l-blog__card swiper-slide">
+									<div class="l-blog__card-image">
+										<img src="/img/bl-1.webp" alt="">
+									</div>
+									<div class="l-blog__card-name">
+										<p class="fs-20-600 text-dark-gray">Выглядят стильно</p>
+									</div>
+									<div class="l-blog__card-description">
+										<p class="fs-14-400 text-dark-gray">Фасады с большой площадью остекления смотрятся стильно и современно. Поэтому при производстве окон «АЛЮТЕХ» используются алюминиевые профили с минимальной видимой шириной и скрытым креплением заполнения. Внутренняя и внешняя части профилей окрашиваются в любой цвет по шкале RAL, анодируются или декорируются.</p>
+									</div>
+								</div>
+								<div class="l-blog__card swiper-slide">
+									<div class="l-blog__card-image">
+										<img src="/img/bl-2.webp" alt="">
+									</div>
+									<div class="l-blog__card-name">
+										<p class="fs-20-600 text-dark-gray">Служат долгие годы</p>
+									</div>
+									<div class="l-blog__card-description">
+										<p class="fs-14-400 text-dark-gray">Окна из алюминия устойчивы к коррозии, ветровым нагрузкам, выгоранию, отличаются взломостойкостью. Они подходят для эксплуатации даже в условиях агрессивной внешней среды. Срок службы окон «АЛЮТЕХ» — 50 лет.</p>
+									</div>
+								</div>
+								<div class="l-blog__card swiper-slide">
+									<div class="l-blog__card-image">
+										<img src="/img/bl-3.webp" alt="">
+									</div>
+									<div class="l-blog__card-name">
+										<p class="fs-20-600 text-dark-gray">Не горят</p>
+									</div>
+									<div class="l-blog__card-description">
+										<p class="fs-14-400 text-dark-gray">Изделия из алюминия не горят — расплавить этот металл можно только при температуре выше 660°C. Алюминиевые окна станут преградой на пути распространения огня и при этом сохранят свои эксплуатационные характеристики.</p>
+									</div>
+								</div>
+								<div class="l-blog__card swiper-slide">
+									<div class="l-blog__card-image">
+										<img src="/img/bl-1.webp" alt="">
+									</div>
+									<div class="l-blog__card-name">
+										<p class="fs-20-600 text-dark-gray">Выглядят стильно</p>
+									</div>
+									<div class="l-blog__card-description">
+										<p class="fs-14-400 text-dark-gray">Фасады с большой площадью остекления смотрятся стильно и современно. Поэтому при производстве окон «АЛЮТЕХ» используются алюминиевые профили с минимальной видимой шириной и скрытым креплением заполнения. Внутренняя и внешняя части профилей окрашиваются в любой цвет по шкале RAL, анодируются или декорируются.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="l-blog__card-swiper-nav">
+							<div class="l-blog__card-swiper-prev">
+								<svg>
+									<use xlink:href="img/sprite.svg#sprite--alfa24_arrow" />
+								</svg>
+							</div>
+							<div class="l-blog__card-swiper-next">
+								<svg>
+									<use xlink:href="img/sprite.svg#sprite--alfa24_arrow" />
+								</svg>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="l-gray-card">
+			<div class="l-wrapper">
+				<div class="l-gray-card__content">
+					<div class="l-gray-card__form">
+						<div class="l-gray-card__wrapper">
+							<div class="l-gray-card__form-image">
+								<img src="/img/show_room.webp" alt="">
+							</div>
+							<form action="">
+								<div class="l-gray-card__form-title">
+									<h2 class="fs-32-700">Записаться в шоу-рум</h2>
+								</div>
+								<div class="l-gray-card__form-subtitle">
+									<h4 class="fs-16-400">Менеджер в шоу-руме расскажет больше и ответит на вопросы.</h4>
+								</div>
+								<div class="l-gray-card__form-input">
+									<input type="text" class="input" value="+7">
+								</div>
+								<div class="l-gray-card__form-action">
+									<button type="submit" class="btn btn-blue">Записаться</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="l-complex">
+			<div class="l-wrapper">
+				<div class="l-complex__content">
+					<div class="l-complex__header">
+						<div class="l-complex__header-title">
+							<h2 class="fs-32-700">Комплексные решения</h2>
+						</div>
+						<div class="l-complex__header-subtitle">
+							<h4 class="fs-16-300">Предлагаем все виды алюминиевых конструкций для воплощения в жизнь любого архитектурного проекта. Окна, двери, порталы и фасады «АЛЮТЕХ» сделают дом стильным и уютным.</h4>
+						</div>
+						<div class="l-complex__header-action">
+							<a href="#" class="btn btn-blue">Подробнее</a>
+						</div>
+					</div>
+					<div class="l-complex__body">
+						<div class="l-complex__body-img">
+							<img src="/img/complex.webp" alt="">
+						</div>
+						<div class="l-complex__body-dots">
+							<div class="l-complex__body-dot" style="top: 300px; left: 700px;">
+								<a href="javascript:void(0);"></a>
+								<div class="l-complex__body-hidden">
+									<div class="l-complex__body-hidden-title">
+										<p class="fs-14-400">Подъемно-раздвижной портал</p>
+									</div>
+									<div class="l-complex__body-hidden-action">
+										<a href="#" class="btn btn-black">Подробнее</a>
+									</div>
+								</div>
+							</div>
+							<div class="l-complex__body-dot" style="top: 467px; left: 527px;">
+								<a href="javascript:void(0);"></a>
+								<div class="l-complex__body-hidden">
+									<div class="l-complex__body-hidden-title">
+										<p class="fs-14-400">Подъемно-раздвижной портал</p>
+									</div>
+									<div class="l-complex__body-hidden-action">
+										<a href="#" class="btn btn-black">Подробнее</a>
+									</div>
+								</div>
+							</div>
+							<div class="l-complex__body-dot" style="top: 467px; left: 361px;">
+								<a href="javascript:void(0);"></a>
+								<div class="l-complex__body-hidden">
+									<div class="l-complex__body-hidden-title">
+										<p class="fs-14-400">Подъемно-раздвижной портал</p>
+									</div>
+									<div class="l-complex__body-hidden-action">
+										<a href="#" class="btn btn-black">Подробнее</a>
+									</div>
+								</div>
+							</div>
+							<div class="l-complex__body-dot" style="top: 365px; left: 345px;">
+								<a href="javascript:void(0);"></a>
+								<div class="l-complex__body-hidden">
+									<div class="l-complex__body-hidden-title">
+										<p class="fs-14-400">Подъемно-раздвижной портал</p>
+									</div>
+									<div class="l-complex__body-hidden-action">
+										<a href="#" class="btn btn-black">Подробнее</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="l-popular-solutions">
+			<div class="l-wrapper">
+				<div class="l-popular-solutions__content">
+					<div class="l-popular-solutions__header">
+						<div class="l-popular-solutions__header-title">
+							<h2 class="fs-32-700">Популярные готовые решения</h2>
+						</div>
+					</div>
+					<div class="l-popular-solutions__tabs">
+						<div class="l-popular-solutions__tabs-wrapper">
+							<ul>
+								<li class="active">
+									<a class="fs-16-600" href="#">Классические окна</a>
+								</li>
+								<li>
+									<a class="fs-16-600" href="#">Французские окна</a>
+								</li>
+								<li>
+									<a class="fs-16-600" href="#">Скрытая створка</a>
+								</li>
+								<li>
+									<a class="fs-16-600" href="#">Вентиляционная створка</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="l-popular-solutions__cards">
+						<div class="l-popular-solutions__cards-wrapper">
+							<div class="l-popular-solutions__item">
+								<div class="l-popular-solutions__item-image">
+									<img src="/img/sol-1.webp" alt="">
+								</div>
+								<div class="l-popular-solutions__item-name">
+									<p class="fs-20-600">Классическое одностворчатое окно</p>
+								</div>
+								<div class="l-popular-solutions__item-small">
+									<p class="fs-14-400 text-gray">Тип открывания: поворотно-откидной</p>
+								</div>
+								<div class="l-popular-solutions__item-descr">
+									<p class="fs-14-400">Цвет: антрацит матовый, 800x1600 мм, двухкамерный стеклопакет с энергоэффективным стеклом.</p>
+								</div>
+								<div class="l-popular-solutions__item-descr">
+									<p class="fs-14-400">Фурнитура Roto: скрытые петли, ручка со скрытым редуктором.</p>
+								</div>
+								<div class="l-popular-solutions__item-price">
+									<span class="fs-20-700">52 260 ₽</span>
+								</div>
+								<div class="l-popular-solutions__item-action">
+									<a href="#" class="btn btn-blue">Заказать</a>
+								</div>
+							</div>
+							<div class="l-popular-solutions__item">
+								<div class="l-popular-solutions__item-image">
+									<img src="/img/sol-1.webp" alt="">
+								</div>
+								<div class="l-popular-solutions__item-name">
+									<p class="fs-20-600">Классическое одностворчатое окно</p>
+								</div>
+								<div class="l-popular-solutions__item-small">
+									<p class="fs-14-400 text-gray">Тип открывания: поворотно-откидной</p>
+								</div>
+								<div class="l-popular-solutions__item-descr">
+									<p class="fs-14-400">Цвет: антрацит матовый, 800x1600 мм, двухкамерный стеклопакет с энергоэффективным стеклом.</p>
+								</div>
+								<div class="l-popular-solutions__item-descr">
+									<p class="fs-14-400">Фурнитура Roto: скрытые петли, ручка со скрытым редуктором.</p>
+								</div>
+								<div class="l-popular-solutions__item-price">
+									<span class="fs-20-700">52 260 ₽</span>
+								</div>
+								<div class="l-popular-solutions__item-action">
+									<a href="#" class="btn btn-blue">Заказать</a>
+								</div>
+							</div>
+							<div class="l-popular-solutions__item">
+								<div class="l-popular-solutions__item-image">
+									<img src="/img/sol-1.webp" alt="">
+								</div>
+								<div class="l-popular-solutions__item-name">
+									<p class="fs-20-600">Классическое одностворчатое окно</p>
+								</div>
+								<div class="l-popular-solutions__item-small">
+									<p class="fs-14-400 text-gray">Тип открывания: поворотно-откидной</p>
+								</div>
+								<div class="l-popular-solutions__item-descr">
+									<p class="fs-14-400">Цвет: антрацит матовый, 800x1600 мм, двухкамерный стеклопакет с энергоэффективным стеклом.</p>
+								</div>
+								<div class="l-popular-solutions__item-descr">
+									<p class="fs-14-400">Фурнитура Roto: скрытые петли, ручка со скрытым редуктором.</p>
+								</div>
+								<div class="l-popular-solutions__item-price">
+									<span class="fs-20-700">52 260 ₽</span>
+								</div>
+								<div class="l-popular-solutions__item-action">
+									<a href="#" class="btn btn-blue">Заказать</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+	</main>
 	@@include('components/page-blocks/_footer.html')
 	@@include('components/page-blocks/_scripts.html')
 </body>

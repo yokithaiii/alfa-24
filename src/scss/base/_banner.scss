@@ -1,0 +1,47 @@
+.l-banner {
+  position: relative;
+  width: 100%;
+  height: 810px;
+}
+.l-banner__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  
+  img {
+    width: 100%;
+    height: 810px;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,rgba(0,0,0,.8) 0,rgba(0,0,0,0) 77.78%),50%/cover no-repeat #d3d3d300;
+  }
+}
+.l-banner__wrapper {
+  max-width: 1440px;
+  width: 100%;
+  padding: 0 150px;
+  margin: 0 auto;
+}
+.l-banner__content {
+  padding-top: 239px;
+}
+.l-banner__title {
+}
+.l-banner__subtitle {
+  max-width: 433px;
+  width: 100%;
+  margin-top: 10px;
+}
+.l-banner__action {
+  margin-top: 30px;
+  display: flex;
+}

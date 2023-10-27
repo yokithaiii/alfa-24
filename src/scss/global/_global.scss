@@ -2,6 +2,7 @@
 *::before,
 *::after {
 	box-sizing: border-box;
+	font-family: 'OpenSans';
 }
 
 .flex {
@@ -40,6 +41,7 @@
 
 html {
 	font-size: 16px;
+	scroll-behavior: smooth;
 }
 
 html,
@@ -63,4 +65,61 @@ h4,
 h5,
 h6 {
 	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+button, input {
+	border: none;
+	outline: none;
+}
+
+button {
+	cursor: pointer;
+}
+
+a {
+	text-decoration: none;
+	color: #000000;
+}
+
+.l-wrapper {
+	max-width: 1440px;
+	width: 100%;
+	padding: 0 100px;
+	margin: 0 auto;
+}
+
+.btn {
+	display: flex;
+	padding: 12px 25px;
+	gap: 10px;
+	border-radius: 5px;
+
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+	letter-spacing: 0.32px;
+
+	&.btn-blue {
+		color: #FFFFFF;
+		background: #328BDC;
+	}
+	&.btn-black {
+		color: #FFFFFF;
+		background: #222;
+	}
+}
+
+.input {
+	padding: 14px 22px;
+	border-radius: 5px;
+	background: #FFF;
+	color: #414141;
+	font-size: 21px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 155.023%; /* 32.555px */
+	letter-spacing: -0.21px;
 }
