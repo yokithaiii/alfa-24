@@ -35,6 +35,16 @@
   line-height: 155.023%;
 }
 
+.fs-21-600 {
+  color: #414141;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 129.023%; /* 27.095px */
+  letter-spacing: 0.84px;
+  text-transform: uppercase;
+}
+
 .fs-20-700 {
   font-size: 20px;
   font-style: normal;
@@ -47,6 +57,14 @@
   font-style: normal;
   font-weight: 600;
   line-height: 121.523%;
+}
+
+.fs-19-700 {
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 155.023%; /* 29.454px */
+  letter-spacing: -0.19px;
 }
 
 .fs-16-600 {
