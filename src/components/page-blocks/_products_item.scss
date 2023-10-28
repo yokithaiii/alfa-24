@@ -4,7 +4,13 @@
   &.revert {
     .l-products__item-wrapper {
       flex-direction: row-reverse;
+      @media screen and (max-width: 425px) {
+        flex-direction: column-reverse;
+      }
     }
+  }
+  @media screen and (max-width: 425px) {
+    height: auto;
   }
 }
 
@@ -12,6 +18,10 @@
   display: flex;
   justify-content: space-between;
   gap: 108px;
+  @media screen and (max-width: 425px) {
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
 }
 
 .l-products__item-content {
@@ -25,6 +35,9 @@
 
 .l-products__item-description {
   margin-top: 10px;
+  @media screen and (max-width: 425px) {
+    margin-top: 15px;
+  }
 }
 
 .l-products__item-action {
@@ -40,9 +53,15 @@
   flex-shrink: 0;
   border-radius: 5px;
   overflow: hidden;
+  @media screen and (max-width: 425px) {
+    height: 343px;
+  }
   img {
     width: 100%;
     height: 610px;
     object-fit: cover;
+    @media screen and (max-width: 425px) {
+      height: 343px;
+    }
   }
 }

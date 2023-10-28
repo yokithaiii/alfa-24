@@ -2,6 +2,9 @@
   position: relative;
   width: 100%;
   height: 810px;
+  @media screen and (max-width: 425px) {
+    height: 694px;
+  }
 }
 .l-banner__image {
   position: absolute;
@@ -10,10 +13,16 @@
   width: 100%;
   height: 100%;
   z-index: -1;
-  
+  @media screen and (max-width: 425px) {
+    height: 694px;
+  }
   img {
     width: 100%;
     height: 810px;
+    @media screen and (max-width: 425px) {
+      height: 694px;
+      object-fit: cover;
+    }
   }
   &::after {
     content: '';
@@ -30,9 +39,15 @@
   width: 100%;
   padding: 0 150px;
   margin: 0 auto;
+  @media screen and (max-width: 425px) {
+		padding: 0 16px;
+	}
 }
 .l-banner__content {
   padding-top: 239px;
+  @media screen and (max-width: 425px) {
+		padding-top: 215px;
+	}
 }
 .l-banner__title {
 }
@@ -40,8 +55,14 @@
   max-width: 433px;
   width: 100%;
   margin-top: 10px;
+  @media screen and (max-width: 425px) {
+		max-width: 324px;
+	}
 }
 .l-banner__action {
   margin-top: 30px;
   display: flex;
+  @media screen and (max-width: 425px) {
+		margin-top: 20px;
+	}
 }

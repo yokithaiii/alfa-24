@@ -6,6 +6,52 @@ const swiperBlog = new Swiper('.l-blog__slider .swiper', {
     nextEl: '.l-blog__card-swiper-next',
     prevEl: '.l-blog__card-swiper-prev',
   },
+  breakpoints: {
+    // when window width is >= 320px
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 18
+    },
+    // when window width is >= 480px
+    480: {
+      slidesPerView: 2,
+      spaceBetween: 18
+    },
+    // when window width is >= 640px
+    640: {
+      slidesPerView: 3,
+      spaceBetween: 18
+    }
+  }
+});
+
+
+const swiperSols = document.querySelectorAll('.l-popular-solutions__cards-tab.swiper');
+swiperSols.forEach(el => {
+  const swiperr = new Swiper(el, {
+    spaceBetween: 18,
+    slidesPerView: 1,
+    speed: 1000,
+    allowTouchMove: false,
+    breakpoints: {
+      // when window width is >= 320px
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 18,
+        allowTouchMove: true,
+      },
+      // when window width is >= 480px
+      480: {
+        slidesPerView: 2,
+        spaceBetween: 30
+      },
+      // when window width is >= 640px
+      640: {
+        slidesPerView: 'auto',
+        spaceBetween: 0
+      }
+    }
+  });
 });
 
 const swiperCases = new Swiper('.l-cases__swiper', {

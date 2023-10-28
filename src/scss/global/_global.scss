@@ -81,6 +81,9 @@ button {
 a {
 	text-decoration: none;
 	color: #000000;
+	@media screen and (max-width: 425px) {
+		white-space: nowrap;
+	}
 }
 
 .l-wrapper {
@@ -88,6 +91,9 @@ a {
 	width: 100%;
 	padding: 0 100px;
 	margin: 0 auto;
+	@media screen and (max-width: 425px) {
+		padding: 0 16px;
+	}
 }
 
 .btn {
@@ -101,15 +107,22 @@ a {
 	font-weight: 600;
 	line-height: normal;
 	letter-spacing: 0.32px;
-
+	transition: .2s;
 	&.btn-blue {
 		color: #FFFFFF;
 		background: #328BDC;
+		&:hover {
+			background: #56a2e9;
+		}
 	}
 	&.btn-black {
 		color: #FFFFFF;
 		background: #222;
+		&:hover {
+			background: rgb(66, 66, 66);
+		}
 	}
+	
 }
 
 .input {
@@ -122,4 +135,13 @@ a {
 	font-weight: 400;
 	line-height: 155.023%; /* 32.555px */
 	letter-spacing: -0.21px;
+}
+
+::selection {
+	background: #5DB9ED;
+	color: #FFF;
+}
+::-moz-selection {
+	background: #5DB9ED;
+	color: #FFF;
 }
