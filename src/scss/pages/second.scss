@@ -71,3 +71,292 @@
     object-fit: cover;
   }
 }
+
+//breadcrumbs 
+.l-breadcrumbs {
+  margin-top: 32px;
+}
+
+.l-breadcrumbs__content {
+  ul {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  li {
+    display: flex;
+  }
+  a {
+    color: #222;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  span {
+    color: #888;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  svg {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+//page nav
+.l-page-nav {
+  margin-top: 44px;
+  .l-products__nav {
+    margin-top: 0;
+    padding: 20px 0;
+  }
+  .l-products__nav-wrapper ul {
+    gap: 70px;
+  }
+}
+
+//advice cards golden
+.l-advice-cards {
+  margin-top: 90px;
+}
+
+.l-advice-cards__content {
+
+}
+
+.l-advice-cards__swiper {
+  height: 160px;
+  position: relative;
+  .swiper-wrapper {
+    align-items: center;
+  }
+  .swiper-slide-next {
+    .l-advice-cards__item {
+      height: 160px;
+    }
+    .l-advice-cards__item-wrapper {
+      height: 100%;
+      padding-top: 30px;
+    }
+  }
+  .gold-card {
+    top: 64px;
+    &.swiper-button-disabled {
+      opacity: 0;
+    }
+  }
+}
+
+.l-advice-cards__item {
+  border-radius: 5px;
+  background: #BAA27E;
+  height: 130px;
+  transition: .4s;
+}
+
+.l-advice-cards__item-wrapper {
+  display: flex;
+  gap: 14px;
+  padding: 20px;
+}
+
+.l-advice-cards__item-icon {
+  svg {
+    width: 29px;
+    height: 29px;
+  }
+}
+
+.l-advice-cards__item-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.l-advice-cards__item-title {
+  p {
+    color: #FFF;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 121.523%; /* 21.874px */
+  }
+}
+
+.l-advice-cards__item-subtitle {
+  p {
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 121.523%; /* 17.013px */
+  }
+}
+
+//big card
+.l-big-complex {
+  margin-top: 110px;
+}
+
+.l-big-complex__wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.l-big-complex__content {
+  padding: 84px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 90px;
+  border-radius: 10px;
+  background: #F5F5F7;
+}
+
+.l-big-complex__header {
+  max-width: 712px;
+  width: 100%;
+}
+
+.l-big-complex__header-title {
+}
+
+.l-big-complex__header-subtitle {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.l-big-complex__body {
+  position: relative;
+  .l-complex__body-hidden-title {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+.l-big-complex__body-img {
+  width: 405px;
+  height: 572px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.l-complex__body-hidden-row {
+  display: flex;
+  gap: 5px;
+}
+
+.l-complex__body-hidden-col {
+  display: flex;
+  flex-direction: column;
+  p {
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  span {
+    white-space: nowrap;
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+  }
+  &.italic {
+    p,span {
+      font-style: italic;
+    }
+  }
+}
+
+//prodcut
+.l-product {
+  margin-top: 119px;
+}
+
+.l-product__detail {
+  margin-top: 112px;
+}
+
+.l-product__detail-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.l-product__detail-left {
+
+}
+.l-product__detail-title {
+
+}
+
+.l-product__detail-cards {
+  margin-top: 54px;
+  display: flex;
+  gap: 15px;
+}
+
+.l-product__detail-card {
+  border-radius: 10px;
+  
+  &.active {
+    background: #FFF;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.10);
+  }
+}
+
+.l-product__detail-card--img {
+  background: #F7F7F8;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  width: 173px;
+  height: 173px;
+  padding: 12px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.l-product__detail-card--name {
+  padding: 6px 20px 10px 20px;
+  display: flex;
+  justify-content: center;
+
+  color: #414141;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 155.023%; /* 24.804px */
+  letter-spacing: -0.16px;
+}
+
+.l-product__detail-right {
+}
+
+.l-product__detail-right--img {
+  display: none;
+  width: 450px;
+  height: 615px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &.active {
+    display: block;
+  }
+}

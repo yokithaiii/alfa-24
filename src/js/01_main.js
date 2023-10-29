@@ -82,6 +82,17 @@ const swiperContacts = new Swiper('.l-contacts__slider-swiper .swiper', {
   },
 });
 
+const swiperGoldenCards = new Swiper('.l-advice-cards__swiper .swiper', {
+  spaceBetween: 20,
+  slidesPerView: 3,
+  centeredSlides: false,
+  speed: 1000,
+  navigation: {
+    nextEl: '.l-blog__card-swiper-next.gold-card',
+    prevEl: '.l-blog__card-swiper-prev.gold-card',
+  },
+});
+
 
 const dots = document.querySelectorAll('.l-complex__body-dot');
 document.addEventListener('click', function(event) {
@@ -103,7 +114,7 @@ dots.forEach(el => {
   });
 });
 
-
+//tab 1
 const $btns = $('.l-popular-solutions__tabs li');
 const $tabs = $('.l-popular-solutions__cards-tab');
 
@@ -120,6 +131,26 @@ $btns.on('click', function() {
   $tabs.fadeOut(200, function() {
     $tab.fadeIn(200);
   });
+
+});
+
+//tab 2 in second page detail  product
+const $btns2 = $('.l-product__detail-card');
+const $tabs2 = $('.l-product__detail-right--img');
+
+$btns2.on('click', function() {
+  $btns2.removeClass('active');
+  $(this).addClass('active');
+
+  const tabToShow2 = $(this).data('popull');
+  const $tab2 = $('#' + tabToShow2);
+
+  $tabs2.removeClass('active');
+  $tab2.addClass('active');
+
+  // $tabs2.fadeOut(200, function() {
+  //   $tab2.fadeIn(200);
+  // });
 
 });
 
