@@ -276,7 +276,7 @@
 			</div>
 		</section>
 
-		<section class="l-product">
+		<section class="l-product" data-tabs>
 			<div class="l-wrapper">
 				<div class="l-products__header">
 					<div class="l-products__header-title">
@@ -288,34 +288,34 @@
 						</h4>
 					</div>
 				</div>
-				<div class="l-popular-solutions__tabs">
+				<div class="l-popular-solutions__tabs recs">
 					<div class="l-popular-solutions__tabs-wrapper">
-						<ul>
-							<li class="active" data-popul="popul-1">
+						<ul class="tabs__list" data-list>
+							<li data-target="tab1" class="active">
 								<a class="fs-16-600" href="javascript:void(0);">Тип решения</a>
 							</li>
-							<li data-popul="popul-2">
+							<li data-target="tab2">
 								<a class="fs-16-600" href="javascript:void(0);">Полимерное покрытие</a>
 							</li>
-							<li data-popul="popul-3">
+							<li data-target="tab3">
 								<a class="fs-16-600" href="javascript:void(0);">Анодирование</a>
 							</li>
-							<li data-popul="popul-4">
+							<li data-target="tab4">
 								<a class="fs-16-600" href="javascript:void(0);">Декорирование</a>
 							</li>
 						</ul>
 					</div>
 				</div>
-				<div class="l-popular-solutions__cards">
-					<div id="popul-1" class="l-popular-solutions__cards-tab active">
-						<div class="l-product__detail">
+				<div class="l-popular-solutions__cards recs">
+					<div data-tab="tab1" class="l-popular-solutions__cards-tab tab-content active">
+						<div class="l-product__detail" data-tabs>
 							<div class="l-product__detail-wrapper">
 								<div class="l-product__detail-left">
 									<div class="l-product__detail-title">
 										<h2 class="fs-32-700">Тип решения</h2>
 									</div>
-									<div class="l-product__detail-cards">
-										<div class="l-product__detail-card active" data-popull="popull-1">
+									<ul class="l-product__detail-cards sub-tabs" data-list>
+										<li class="l-product__detail-card active" data-target="nested-tab1">
 											<a href="javascript:void(false);">
 												<div class="l-product__detail-card--img">
 													<img src="/img/pro-1.webp" alt="">
@@ -324,8 +324,8 @@
 													Одностворчатое
 												</div>
 											</a>
-										</div>
-										<div class="l-product__detail-card" data-popull="popull-2">
+										</li>
+										<li class="l-product__detail-card" data-target="nested-tab2">
 											<a href="javascript:void(false);">
 												<div class="l-product__detail-card--img">
 													<img src="/img/pro-2.webp" alt="">
@@ -334,63 +334,88 @@
 													Двухстворчатое
 												</div>
 											</a>
-										</div>
-									</div>
+										</li>
+									</ul>
 								</div>
 								<div class="l-product__detail-right">
-									<div class="l-product__detail-right--img active" id="popull-1">
+									<div class="sub-tab-content l-product__detail-right--img active" data-tab="nested-tab1">
 										<img src="/img/pro-1-big.webp" alt="">
 									</div>
-									<div class="l-product__detail-right--img" id="popull-2">
+									<div class="sub-tab-content l-product__detail-right--img" data-tab="nested-tab2">
 										<img src="/img/pro-2-big.webp" alt="">
 									</div>
 								</div>
-								<div></div>
 							</div>
 						</div>
 					</div>
-					<div id="popul-2" class="l-popular-solutions__cards-tab">
-						<div class="l-product__detail">
+					<div data-tab="tab2" class="l-popular-solutions__cards-tab tab-content">
+						<div class="l-product__detail color" data-tabs>
 							<div class="l-product__detail-wrapper">
 								<div class="l-product__detail-left">
 									<div class="l-product__detail-title">
 										<h2 class="fs-32-700">Полимерное покрытие</h2>
 									</div>
-									<div class="l-product__detail-cards">
-										<div class="l-product__detail-card active" data-popull="popull-3">
+									<ul class="l-product__detail-cards sub-tabs"  data-list>
+										<li class="l-product__detail-card active" data-target="nested-tab3">
 											<a href="javascript:void(false);">
-												<div class="l-product__detail-card--img">
-													<img src="/img/pro-1.webp" alt="">
+												<div class="l-product__detail-card--img color">
+													<img src="/img/color-fur-white.webp" alt="">
 												</div>
 												<div class="l-product__detail-card--name">
-													С покрытием
+													Белый
 												</div>
 											</a>
+										</li>
+										<li class="l-product__detail-card" data-target="nested-tab4">
+											<a href="javascript:void(false);">
+												<div class="l-product__detail-card--img color">
+													<img src="/img/color-fur-gray.webp" alt="">
+												</div>
+												<div class="l-product__detail-card--name">
+													Серебро
+												</div>
+											</a>
+										</li>
+										<li class="l-product__detail-card" data-target="nested-tab5">
+											<a href="javascript:void(false);">
+												<div class="l-product__detail-card--img color">
+													<img src="/img/color-fur-black.webp" alt="">
+												</div>
+												<div class="l-product__detail-card--name">
+													Черный
+												</div>
+											</a>
+										</li>
+									</ul>
+									<div class="l-product__detail-cards--texts">
+										<div class="l-product__detail-cards--text">
+											<p class="fs-16-300">
+												Вы можете выбрать как тип, так и цвет ручки, сделав ее гармоничным дополнением окна. А для поддержания гигиены и здорового микроклимата в помещениях можно заказать ручки с антибактериальным покрытием.
+											</p>
 										</div>
-										<div class="l-product__detail-card" data-popull="popull-4">
-											<a href="javascript:void(false);">
-												<div class="l-product__detail-card--img">
-													<img src="/img/pro-2.webp" alt="">
-												</div>
-												<div class="l-product__detail-card--name">
-													Без покрытия
-												</div>
-											</a>
+										<div class="l-product__detail-cards--text small">
+											<p class="fs-12-300">
+												*Цвет готового изделия может незначительно отличаться по оттенку от изображения на мониторе. Это связано с индивидуальными настройками устройства, а также с разницей восприятия человеком. **Под заказ доступны ручки в любом цвете по каталогу RAL.
+											</p>
 										</div>
 									</div>
 								</div>
 								<div class="l-product__detail-right">
-									<div class="l-product__detail-right--img active" id="popull-3">
-										<img src="/img/pro-1-big.webp" alt="">
+									<div class="sub-tab-content l-product__detail-right--img active" data-tab="nested-tab3">
+										<img src="/img/fur-white.webp" alt="">
 									</div>
-									<div class="l-product__detail-right--img" id="popull-4">
-										<img src="/img/pro-2-big.webp" alt="">
+									<div class="sub-tab-content l-product__detail-right--img" data-tab="nested-tab4">
+										<img src="/img/fur-gray.webp" alt="">
+									</div>
+									<div class="sub-tab-content l-product__detail-right--img" data-tab="nested-tab5">
+										<img src="/img/fur-black.webp" alt="">
 									</div>
 								</div>
-								<div></div>
 							</div>
 						</div>
 					</div>
+					<div data-tab="tab3" class="l-popular-solutions__cards-tab tab-content">tab 3</div>
+					<div data-tab="tab4" class="l-popular-solutions__cards-tab tab-content">tab 4</div>
 				</div>
 			</div>
 		</section>
@@ -421,7 +446,7 @@
 		</section>
 
     
-		<section class="l-product">
+		<section class="l-product" data-tabs>
 			<div class="l-wrapper">
 				<div class="l-products__header">
 					<div class="l-products__header-title">
@@ -433,16 +458,137 @@
 						</h4>
 					</div>
 				</div>
-				<div class="l-popular-solutions__tabs">
+				<div class="l-popular-solutions__tabs furnitura">
 					<div class="l-popular-solutions__tabs-wrapper">
-						<ul>
-							<li class="active" data-populs="populs-1">
+						<ul class="tabs" data-list>
+							<li data-target="tab1" class="active">
 								<a class="fs-16-600" href="javascript:void(0);">Цветовые решения ручек</a>
 							</li>
-							<li data-populs="populs-2">
+							<li data-target="tab2">
 								<a class="fs-16-600" href="javascript:void(0);">Типы ручек</a>
 							</li>
 						</ul>
+					</div>
+				</div>
+				<div class="l-popular-solutions__cards furnitura">
+					<div data-tab="tab1" class="l-popular-solutions__cards-tab tab-content active">
+						<div class="l-product__detail color" data-tabs>
+							<div class="l-product__detail-wrapper">
+								<div class="l-product__detail-left">
+									<div class="l-product__detail-title">
+										<h2 class="fs-32-700">Цветовые решения ручек</h2>
+									</div>
+									<ul class="l-product__detail-cards sub-tabs" data-list>
+										<li class="l-product__detail-card active" data-target="nested-tab1">
+											<a href="javascript:void(false);">
+												<div class="l-product__detail-card--img">
+													<img src="/img/color-fur-white.webp" alt="">
+												</div>
+												<div class="l-product__detail-card--name">
+													Белый
+												</div>
+											</a>
+										</li>
+										<li class="l-product__detail-card" data-target="nested-tab2">
+											<a href="javascript:void(false);">
+												<div class="l-product__detail-card--img">
+													<img src="/img/color-fur-gray.webp" alt="">
+												</div>
+												<div class="l-product__detail-card--name">
+													Серебро
+												</div>
+											</a>
+										</li>
+										<li class="l-product__detail-card" data-target="nested-tab3">
+											<a href="javascript:void(false);">
+												<div class="l-product__detail-card--img">
+													<img src="/img/color-fur-black.webp" alt="">
+												</div>
+												<div class="l-product__detail-card--name">
+													Черный
+												</div>
+											</a>
+										</li>
+									</ul>
+									<div class="l-product__detail-cards--texts">
+										<div class="l-product__detail-cards--text">
+											<p class="fs-16-300">
+												Вы можете выбрать как тип, так и цвет ручки, сделав ее гармоничным дополнением окна. А для поддержания гигиены и здорового микроклимата в помещениях можно заказать ручки с антибактериальным покрытием.
+											</p>
+										</div>
+										<div class="l-product__detail-cards--text small">
+											<p class="fs-12-300">
+												*Цвет готового изделия может незначительно отличаться по оттенку от изображения на мониторе. Это связано с индивидуальными настройками устройства, а также с разницей восприятия человеком. **Под заказ доступны ручки в любом цвете по каталогу RAL.
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="l-product__detail-right">
+									<div class="sub-tab-content l-product__detail-right--img active" data-tab="nested-tab1">
+										<img src="/img/ruchka-2.webp" alt="">
+									</div>
+									<div class="sub-tab-content l-product__detail-right--img" data-tab="nested-tab2">
+										<img src="/img/ruchka-3.webp" alt="">
+									</div>
+									<div class="sub-tab-content l-product__detail-right--img" data-tab="nested-tab3">
+										<img src="/img/ruchka-1.webp" alt="">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div data-tab="tab2" class="l-popular-solutions__cards-tab tab-content">
+						<div class="l-product__detail color" data-tabs>
+							<div class="l-product__detail-wrapper">
+								<div class="l-product__detail-left">
+									<div class="l-product__detail-title">
+										<h2 class="fs-32-700">Типы ручек</h2>
+									</div>
+									<ul class="l-product__detail-cards sub-tabs" data-list>
+										<li class="l-product__detail-card active" data-target="nested-tab1">
+											<a href="javascript:void(false);">
+												<div class="l-product__detail-card--img">
+													<img src="/img/color-fur-white.webp" alt="">
+												</div>
+												<div class="l-product__detail-card--name">
+													с замком
+												</div>
+											</a>
+										</li>
+										<li class="l-product__detail-card" data-target="nested-tab2">
+											<a href="javascript:void(false);">
+												<div class="l-product__detail-card--img">
+													<img src="/img/color-fur-gray.webp" alt="">
+												</div>
+												<div class="l-product__detail-card--name">
+													без замка
+												</div>
+											</a>
+										</li>
+									</ul>
+									<div class="l-product__detail-cards--texts">
+										<div class="l-product__detail-cards--text">
+											<p class="fs-16-300">
+												Вы можете выбрать как тип, так и цвет ручки, сделав ее гармоничным дополнением окна. А для поддержания гигиены и здорового микроклимата в помещениях можно заказать ручки с антибактериальным покрытием.
+											</p>
+										</div>
+										<div class="l-product__detail-cards--text small">
+											<p class="fs-12-300">
+												*Цвет готового изделия может незначительно отличаться по оттенку от изображения на мониторе. Это связано с индивидуальными настройками устройства, а также с разницей восприятия человеком. **Под заказ доступны ручки в любом цвете по каталогу RAL.
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="l-product__detail-right">
+									<div class="sub-tab-content l-product__detail-right--img active" data-tab="nested-tab1">
+										<img src="/img/type-ruchka-2.webp" alt="">
+									</div>
+									<div class="sub-tab-content l-product__detail-right--img" data-tab="nested-tab2">
+										<img src="/img/type-ruchka-1.webp" alt="">
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -705,7 +851,52 @@
 			</div>
 		</section>
 
-    new block
+		<section class="l-blog-2">
+			<div class="l-wrapper">
+				<div class="l-blog-2__content">
+					<div class="l-complex__header">
+						<div class="l-complex__header-title">
+							<h2 class="fs-32-700">Полезные дополнения</h2>
+						</div>
+						<div class="l-complex__header-subtitle">
+							<h4 class="fs-16-300">Специальные предложения для тех, кто ценит сочетание комфорта и безопасности.</h4>
+						</div>
+					</div>
+					<div class="l-blog-2__slider">
+						<div class="swiper">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<div class="l-blog-2__item">
+										<div class="l-blog-2__item-img">
+											<img src="/img/blog-2-2.webp" alt="">
+										</div>
+										<div class="l-blog-2__item-title">
+											<p class="fs-24-700">Цельностеклянное ограждение</p>
+										</div>
+										<div class="l-blog-2__item-subtitle">
+											<p class="fs-16-300">Система стеклянных ограждений защищает от случайного выпадения. Конструкции ALT JB идеально подойдут как для ограждения малых проемов, так и для организации цельностеклянных архитектурных конструкций длинной до 3 метров.</p>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div class="l-blog-2__item">
+										<div class="l-blog-2__item-img">
+											<img src="/img/blog-2-1.webp" alt="">
+										</div>
+										<div class="l-blog-2__item-title">
+											<p class="fs-24-700">Дополнительный комфорт и <br> защита остекления</p>
+										</div>
+										<div class="l-blog-2__item-subtitle">
+											<p class="fs-16-300">Почти незаметные в экстерьере роллеты со скрытым коробом позволяют управлять световым потоком: ночью затемняют комнаты, утром впускают в них бодрящий свет солнца. Защищают дом от шума, а остекление — от механических повреждений и осадков.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
     <section class="l-gray-card">
 			<div class="l-wrapper">
@@ -820,7 +1011,95 @@
 			</div>
 		</section>
 		
-    new block
+    <section class="l-recommended">
+			<div class="l-wrapper">
+				<div class="l-recommended__content">
+					<div class="l-complex__header">
+						<div class="l-complex__header-title">
+							<h2 class="fs-32-700">Вас также могут заинтересовать</h2>
+						</div>
+					</div>
+					<div class="l-recommended__slider">
+						<div class="swiper">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<div class="l-recommended__item">
+										<div class="l-recommended__item-img">
+											<img src="/img/rec-1.webp" alt="">
+										</div>
+										<div class="l-recommended__item-title">
+											<p>
+												Французские окна
+											</p>
+										</div>
+										<div class="l-recommended__item-action">
+											<a href="#" class="btn btn-blue">Подробнее</a>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div class="l-recommended__item">
+										<div class="l-recommended__item-img">
+											<img src="/img/rec-2.webp" alt="">
+										</div>
+										<div class="l-recommended__item-title">
+											<p>
+												Порталы
+											</p>
+										</div>
+										<div class="l-recommended__item-action">
+											<a href="#" class="btn btn-blue">Подробнее</a>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div class="l-recommended__item">
+										<div class="l-recommended__item-img">
+											<img src="/img/rec-3.webp" alt="">
+										</div>
+										<div class="l-recommended__item-title">
+											<p>
+												Фасады
+											</p>
+										</div>
+										<div class="l-recommended__item-action">
+											<a href="#" class="btn btn-blue">Подробнее</a>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div class="l-recommended__item">
+										<div class="l-recommended__item-img">
+											<img src="/img/rec-1.webp" alt="">
+										</div>
+										<div class="l-recommended__item-title">
+											<p>
+												Французские окна
+											</p>
+										</div>
+										<div class="l-recommended__item-action">
+											<a href="#" class="btn btn-blue">Подробнее</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="l-blog__card-swiper-nav">
+							<div class="l-blog__card-swiper-prev">
+								<svg>
+									<use xlink:href="img/sprite.svg#sprite--alfa24_arrow" />
+								</svg>
+							</div>
+							<div class="l-blog__card-swiper-next">
+								<svg>
+									<use xlink:href="img/sprite.svg#sprite--alfa24_arrow" />
+								</svg>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
     <section class="l-gray-card">
 			<div class="l-wrapper">

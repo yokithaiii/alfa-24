@@ -112,6 +112,7 @@
   .input {
     display: flex;
     width: 441px;
+    border: 2px solid transparent;
     &:focus {
       border: 2px solid #4380c5;
     }
@@ -310,6 +311,7 @@
   }
   .input {
     width: 441px;
+    border: 2px solid transparent;
     &:focus {
       border: 2px solid #328bdc;
     }
