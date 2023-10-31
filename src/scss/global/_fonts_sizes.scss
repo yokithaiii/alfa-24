@@ -40,6 +40,9 @@
   font-style: normal;
   font-weight: 700;
   line-height: 155.023%;
+  @media screen and (max-width: 768px) {
+    line-height: normal;
+  }
 }
 
 .fs-21-600 {

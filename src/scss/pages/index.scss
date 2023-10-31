@@ -208,6 +208,12 @@
   margin-top: 10px;
   @media screen and (max-width: 768px) {
     margin-top: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
   }
 }
 
@@ -373,6 +379,9 @@
   @media screen and (max-width: 768px) {
     padding-top: 55px;
   }
+  @media screen and (max-width: 425px) {
+    padding-top: 85px;
+  }
 }
 
 .l-complex__header {
@@ -515,6 +524,10 @@
   position: absolute;
   top: 0;
   left: 0;
+  @media screen and (max-width: 425px) {
+    padding: 10px;
+    gap: 5px;
+  }
 }
 
 .l-complex__body-hidden-title {

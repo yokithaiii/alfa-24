@@ -229,33 +229,21 @@ const swiperGoldenCards = new Swiper('.l-advice-cards__swiper .swiper', {
     nextEl: '.l-blog__card-swiper-next.gold-card',
     prevEl: '.l-blog__card-swiper-prev.gold-card',
   },
-});
-
-const swiperBlog2 = new Swiper('.l-blog-2__slider .swiper', {
-  spaceBetween: 18,
-  slidesPerView: 1,
-  speed: 1000,
-  allowTouchMove: true,
-  navigation: {
-    nextEl: '.l-blog-2__slider .l-blog__card-swiper-next',
-    prevEl: '.l-blog-2__slider .l-blog__card-swiper-prev',
-  },
   breakpoints: {
     // when window width is >= 320px
     320: {
-      slidesPerView: 1,
-      spaceBetween: 18
+      slidesPerView: 'auto',
+      spaceBetween: 10
     },
     // when window width is >= 480px
-    480: {
+    768: {
       slidesPerView: 2,
       spaceBetween: 18
     },
     // when window width is >= 640px
-    640: {
-      slidesPerView: 'auto',
-      allowTouchMove: false,
-      spaceBetween: 0
+    769: {
+      slidesPerView: 3,
+      spaceBetween: 20
     }
   }
 });
@@ -275,12 +263,12 @@ const swiperRecommended = new Swiper('.l-recommended__slider .swiper', {
       spaceBetween: 18
     },
     // when window width is >= 480px
-    480: {
+    768: {
       slidesPerView: 2,
       spaceBetween: 18
     },
     // when window width is >= 640px
-    640: {
+    769: {
       slidesPerView: 3,
       spaceBetween: 18
     }
