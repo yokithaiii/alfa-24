@@ -143,12 +143,12 @@ const swiperBlog = new Swiper('.l-blog__slider .swiper', {
       spaceBetween: 18
     },
     // when window width is >= 480px
-    480: {
+    768: {
       slidesPerView: 2,
       spaceBetween: 18
     },
     // when window width is >= 640px
-    640: {
+    1024: {
       slidesPerView: 3,
       spaceBetween: 18
     }
@@ -157,12 +157,17 @@ const swiperBlog = new Swiper('.l-blog__slider .swiper', {
 
 
 const swiperSols = document.querySelectorAll('.l-popular-solutions__cards-tab.swiper');
+let i = 1;
 swiperSols.forEach(el => {
   const swiperr = new Swiper(el, {
     spaceBetween: 18,
     slidesPerView: 1,
     speed: 1000,
     allowTouchMove: false,
+    navigation: {
+      nextEl: '#popul-'+i+' .l-blog__card-swiper-next',
+      prevEl: '#popul-'+i+' .l-blog__card-swiper-prev',
+    },
     breakpoints: {
       // when window width is >= 320px
       320: {
@@ -171,17 +176,20 @@ swiperSols.forEach(el => {
         allowTouchMove: true,
       },
       // when window width is >= 480px
-      480: {
+      768: {
         slidesPerView: 2,
-        spaceBetween: 30
+        spaceBetween: 18,
+        allowTouchMove: true,
       },
       // when window width is >= 640px
-      640: {
+      769: {
         slidesPerView: 'auto',
         spaceBetween: 0
       }
     }
   });
+
+  i++;
 });
 
 const swiperCases = new Swiper('.l-cases__swiper', {
@@ -300,6 +308,7 @@ dots.forEach(el => {
   });
 });
 
+$("[name='tel']").mask("+7 (999) 999-99-99");
 
 function indexPagePopularsTab() {
   const $btns1 = $('.l-popular-solutions__tabs.popular li');
@@ -321,156 +330,7 @@ function indexPagePopularsTab() {
   });
 }
 
-function secondPageRecommendedTab() {
-  const $btns2 = $('.l-popular-solutions__tabs.recs li');
-  const $tabs2 = $('.recs .l-popular-solutions__cards-tab');
-
-  $btns2.on('click', function() {
-    $btns2.removeClass('active');
-    $(this).addClass('active');
-
-    const tabToShow2 = $(this).data('rec');
-    const $tab2 = $('#' + tabToShow2);
-
-    $tabs2.removeClass('active');
-    $tab2.addClass('active');
-  });
-}
-
-function secondPageRecommendedInnerTab() {
-  const $btns3 = $('.recs .l-product__detail-card');
-  const $tabs3 = $('.recs .l-product__detail-right--img');
-
-  $btns3.on('click', function() {
-    $btns3.removeClass('active');
-    $(this).addClass('active');
-
-    const tabToShow3 = $(this).data('rec-inner');
-    const $tab3 = $('#' + tabToShow3);
-
-    $tabs3.removeClass('active');
-    $tab3.addClass('active');
-  });
-}
-
-function secondPageFurnituraTab() {
-  const $btns4 = $('.l-popular-solutions__tabs.furnitura li');
-  const $tabs4 = $('.furnitura .l-popular-solutions__cards-tab');
-
-  $btns4.on('click', function() {
-    $btns4.removeClass('active');
-    $(this).addClass('active');
-
-    const tabToShow4 = $(this).data('furnitura');
-    const $tab4 = $('#' + tabToShow4);
-
-    $tabs4.removeClass('active');
-    $tab4.addClass('active');
-  });
-}
-
-function secondPageFunituraInnerTab() {
-  const $btns5 = $('.furnitura .l-product__detail-card');
-  const $tabs5 = $('.furnitura .l-product__detail-right--img');
-
-  $btns5.on('click', function() {
-    $btns5.removeClass('active');
-    $(this).addClass('active');
-
-    const tabToShow5 = $(this).data('furnitura-inner');
-    const $tab5 = $('#' + tabToShow5);
-
-    $tabs5.removeClass('active');
-    $tab5.addClass('active');
-  });
-}
-
 indexPagePopularsTab();
-// secondPageRecommendedTab();
-// secondPageRecommendedInnerTab();
-// secondPageFurnituraTab();
-// secondPageFunituraInnerTab();
-
-// //tab 1
-// const $btns = $('.l-popular-solutions__tabs li');
-// const $tabs = $('.l-popular-solutions__cards-tab');
-
-// $btns.on('click', function() {
-//   $btns.removeClass('active');
-//   $(this).addClass('active');
-
-//   const tabToShow = $(this).data('popul');
-//   const $tab = $('#' + tabToShow);
-
-//   $tabs.removeClass('active');
-//   $tab.addClass('active');
-
-//   $tabs.fadeOut(200, function() {
-//     $tab.fadeIn(200);
-//   });
-
-// });
-
-// //tab 2
-// const $btns4 = $('.l-popular-solutions__tabs li');
-// const $tabs4 = $('.l-popular-solutions__cards-tab');
-
-// $btns4.on('click', function() {
-//   $btns4.removeClass('active');
-//   $(this).addClass('active');
-
-//   const tabToShow4 = $(this).data('populs');
-//   const $tab4 = $('#' + tabToShow4);
-
-//   $tabs4.removeClass('active');
-//   $tab4.addClass('active');
-
-//   $tabs4.fadeOut(200, function() {
-//     $tab4.fadeIn(200);
-//   });
-
-// });
-
-// //tab detail product
-// const $btnsDetailProduct = $('.l-popular-solutions__tabs li');
-// const $tabsDetailProduct = $('.l-popular-solutions__cards-tab');
-
-// $btnsDetailProduct.on('click', function() {
-//   $btnsDetailProduct.removeClass('active');
-//   $(this).addClass('active');
-
-//   const tabToShow3 = $(this).data('rec');
-//   const $tab3 = $('#' + tabToShow3);
-
-//   $tabsDetailProduct.removeClass('active');
-//   $tab3.addClass('active');
-
-//   // $tabsDetailProduct.fadeOut(200, function() {
-//   //   $tab3.fadeIn(200);
-//   // });
-
-// });
-
-// //tab detail product 2
-// const $btns2 = $('.l-product__detail-card');
-// const $tabs2 = $('.l-product__detail-right--img');
-
-// $btns2.on('click', function() {
-//   $btns2.removeClass('active');
-//   $(this).addClass('active');
-
-//   const tabToShow2 = $(this).data('popull');
-//   const $tab2 = $('#' + tabToShow2);
-
-//   $tabs2.removeClass('active');
-//   $tab2.addClass('active');
-
-//   // $tabs2.fadeOut(200, function() {
-//   //   $tab2.fadeIn(200);
-//   // });
-
-// });
-
 
 const $pauseBtn = $('.l-cases__card-swiper-play');
 let $isAutoplayPaused = false;

@@ -19,6 +19,10 @@
   font-style: normal;
   font-weight: 700;
   line-height: 45px;
+  @media screen and (max-width: 425px) {
+    font-size: 32px;
+    line-height: 114.2%; /* 36.544px */
+  }
 }
 
 .fs-32-700 {
@@ -26,6 +30,9 @@
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  @media screen and (max-width: 425px) {
+    font-size: 23px;
+  }
 }
 
 .fs-24-700 {
