@@ -1,129 +1,169 @@
-class Tabs {
-  constructor(root) {
-      this.root = root;
-      this.list = this.root.querySelector('[data-list]');
-      this.buttons = new Map([...this.list.querySelectorAll('[data-target]')]
-          .map(entry => [
-              entry.dataset.target,
-              entry,
-          ])
-      );
-      this.containers = new Map([...this.root.querySelectorAll('[data-tab]')]
-          .map(entry => [entry.dataset.tab, entry])
-      );
-      this.salt = Math.random().toString(36).slice(2);
-      this.current = null;
-      this.active = null;
-  }
+document.addEventListener("DOMContentLoaded", function(event) {
+  class Tabs {
+    constructor(root) {
+        this.root = root;
+        this.list = this.root.querySelector('[data-list]');
+        this.buttons = new Map([...this.list.querySelectorAll('[data-target]')]
+            .map(entry => [
+                entry.dataset.target,
+                entry,
+            ])
+        );
+        this.containers = new Map([...this.root.querySelectorAll('[data-tab]')]
+            .map(entry => [entry.dataset.tab, entry])
+        );
+        this.salt = Math.random().toString(36).slice(2);
+        this.current = null;
+        this.active = null;
+    }
 
-  select(name) {
-      const keys = [...this.buttons.keys()];
+    select(name) {
+        const keys = [...this.buttons.keys()];
 
-      for (let [key, button] of this.buttons.entries()) {
-          button.setAttribute('aria-selected', key === name);
-          if (key === name) {
-            button.classList.add('active');
-          } else {
-            button.classList.remove('active');
-          }
-      }
-
-      for (let [key, container] of this.containers.entries()) {
-        console.log('key '+key);
-        console.log('name '+name);
-          if (key === name) {
-              container.removeAttribute('hidden');
-              container.classList.add('active');
+        for (let [key, button] of this.buttons.entries()) {
+            button.setAttribute('aria-selected', key === name);
+            if (key === name) {
+              button.classList.add('active');
             } else {
-              container.setAttribute('hidden', true);
-              container.classList.remove('active');
-          }
-      }
+              button.classList.remove('active');
+            }
+        }
 
-      this.active = keys.indexOf(name);
+        for (let [key, container] of this.containers.entries()) {
+          console.log(key,name);
+            if (key === name) {
+                container.removeAttribute('hidden');
+                container.classList.add('active');
+              } else {
+                container.setAttribute('hidden', true);
+                container.classList.remove('active');
+            }
+        }
+
+        this.active = keys.indexOf(name);
+    }
+
+    init() {
+        const keys = [...this.buttons.keys()];
+
+        this.list.setAttribute('role', 'tablist');
+
+        this.list.addEventListener('keydown', event => {
+            if (event.code === 'Home') {
+                event.preventDefault();
+
+                this.buttons.get(keys[0]).focus();
+            }
+
+            if (event.code === 'End') {
+                event.preventDefault();
+
+                this.buttons.get(keys[keys.length - 1]).focus();
+            }
+
+            if (event.code === 'ArrowLeft') {
+                event.preventDefault();
+
+                this.buttons.get(keys[Math.max(0, this.current - 1)]).focus();
+            }
+
+            if (event.code === 'ArrowRight') {
+                event.preventDefault();
+
+                this.buttons.get(keys[Math.min(keys.length - 1, this.current + 1)]).focus();
+            }
+        });
+
+        for (let [key, button] of this.buttons.entries()) {
+            button.setAttribute('tabindex', '0');
+            button.setAttribute('id', `button_${this.salt}_${key}`);
+            button.setAttribute('role', 'tab');
+            button.setAttribute('aria-controls', `container_${this.salt}_${key}`);
+
+            button.addEventListener('click', event => {
+                event.preventDefault();
+
+                this.select(key);
+            });
+
+            button.addEventListener('focus', event => {
+                this.current = keys.indexOf(key);
+            });
+
+            button.addEventListener('keypress', event => {
+                if (event.code === 'Enter' || event.code === 'Space') {
+                    event.preventDefault();
+
+                    this.select(key);
+                }
+            });
+        }
+
+        for (let [key, container] of this.containers.entries()) {
+            container.setAttribute('id', `container_${this.salt}_${key}`);
+            container.setAttribute('role', 'tabpanel');
+            container.setAttribute('aria-labelledby', `button_${this.salt}_${key}`);
+        }
+
+        this.select(keys[0]);
+    }
+
+    static create(element) {
+        const instance = new Tabs(element);
+        instance.init();
+
+        return instance;
+    }
   }
 
-  init() {
-      const keys = [...this.buttons.keys()];
+  const containers = document.querySelectorAll('[data-tabs]');
 
-      this.list.setAttribute('role', 'tablist');
-
-      this.list.addEventListener('keydown', event => {
-          if (event.code === 'Home') {
-              event.preventDefault();
-
-              this.buttons.get(keys[0]).focus();
-          }
-
-          if (event.code === 'End') {
-              event.preventDefault();
-
-              this.buttons.get(keys[keys.length - 1]).focus();
-          }
-
-          if (event.code === 'ArrowLeft') {
-              event.preventDefault();
-
-              this.buttons.get(keys[Math.max(0, this.current - 1)]).focus();
-          }
-
-          if (event.code === 'ArrowRight') {
-              event.preventDefault();
-
-              this.buttons.get(keys[Math.min(keys.length - 1, this.current + 1)]).focus();
-          }
-      });
-
-      for (let [key, button] of this.buttons.entries()) {
-          button.setAttribute('tabindex', '0');
-          button.setAttribute('id', `button_${this.salt}_${key}`);
-          button.setAttribute('role', 'tab');
-          button.setAttribute('aria-controls', `container_${this.salt}_${key}`);
-
-          button.addEventListener('click', event => {
-              event.preventDefault();
-
-              this.select(key);
-          });
-
-          button.addEventListener('focus', event => {
-              this.current = keys.indexOf(key);
-          });
-
-          button.addEventListener('keypress', event => {
-              if (event.code === 'Enter' || event.code === 'Space') {
-                  event.preventDefault();
-
-                  this.select(key);
-              }
-          });
-      }
-
-      for (let [key, container] of this.containers.entries()) {
-          container.setAttribute('id', `container_${this.salt}_${key}`);
-          container.setAttribute('role', 'tabpanel');
-          container.setAttribute('aria-labelledby', `button_${this.salt}_${key}`);
-      }
-
-      this.select(keys[0]);
+  for (let container of containers) {
+    const tabs = Tabs.create(container);
+    // console.log(tabs)
   }
 
-  static create(element) {
-      const instance = new Tabs(element);
-      instance.init();
-
-      return instance;
-  }
-}
-
-const containers = document.querySelectorAll('[data-tabs]');
-
-for (let container of containers) {
-  const tabs = Tabs.create(container);
-  // console.log(tabs)
-}
+});
 
 
+document.addEventListener("DOMContentLoaded", function() {
+  const sections = document.querySelectorAll(".l-products__content .l-products__item");
+  const navLinks = document.querySelectorAll(".l-products__nav-wrapper a");
+
+  const sectionOffsets = Array.from(sections).map(section => section.offsetTop);
+
+  let offsetMargin = window.innerWidth >= 426 ? 350 : 0;
+  let offsetMarginLink = window.innerWidth >= 426 ? 150 : 50;
+
+  window.addEventListener("scroll", () => {
+    const scrollPosition = window.scrollY;
+
+    sectionOffsets.forEach((offset, index) => {
+      if (scrollPosition >= offset - offsetMargin) {
+        navLinks.forEach(link => link.classList.remove("active"));
+        navLinks[index].classList.add("active");
+      }
+    });
+  });
+
+  window.addEventListener("resize", () => {
+    offsetMargin = window.innerWidth >= 426 ? 350 : 0;
+    offsetMarginLink = window.innerWidth >= 426 ? 150 : 50;
+  });
+
+  navLinks.forEach(link => {
+    link.addEventListener("click", function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute("href").substring(1);
+      const targetSection = document.getElementById(targetId);
+
+      if (targetSection) {
+        const targetOffset = targetSection.offsetTop - offsetMarginLink;
+        window.scrollTo({ top: targetOffset, behavior: "smooth" });
+      }
+    });
+  });
+});
 
 
 
@@ -182,7 +222,7 @@ swiperSols.forEach(el => {
         allowTouchMove: true,
       },
       // when window width is >= 640px
-      769: {
+      1200: {
         slidesPerView: 'auto',
         spaceBetween: 0
       }
@@ -334,3 +374,55 @@ $pauseBtn.on('click', function() {
   $isAutoplayPaused = !$isAutoplayPaused;
 });
 
+
+const myModal = new HystModal({
+  linkAttributeName: "data-hystmodal",
+  // настройки (не обязательно), см. API
+});
+
+document.addEventListener("DOMContentLoaded", function(event) {
+  ymaps.ready(init);
+
+  function init() {
+    var myMap = new ymaps.Map("map", {
+      center: [55.839792, 37.490164],
+      zoom: 16,
+      controls: ['zoomControl'],
+      behaviors: ["default", "scrollZoom"]
+    });
+    var myPlacemark1 = new ymaps.Placemark(
+      [55.839792, 37.490164], 
+      {balloonContent: 'Москва, БЦ Водный, Головинское шоссе 5а'},
+    );
+    var myPlacemark2 = new ymaps.Placemark(
+      [55.751904, 37.671029], 
+      {balloonContent: 'ARTPLAY, Нижняя Сыромятническая ул.10,стр.3'},
+    );
+    var myPlacemark3 = new ymaps.Placemark(
+      [55.892158, 37.714204], 
+      {balloonContent: 'Мытищи, 3-я крестьянская, с 23'},
+    );
+    var myPlacemark4 = new ymaps.Placemark(
+      [55.595521, 37.745466], 
+      {balloonContent: 'МО, Ленинский р-н, пос Развилка, вл 8, оф 35'},
+    );
+    myMap.behaviors.disable("scrollZoom");
+    myMap.geoObjects.add(myPlacemark1);
+    myMap.geoObjects.add(myPlacemark2);
+    myMap.geoObjects.add(myPlacemark3);
+    myMap.geoObjects.add(myPlacemark4);
+  
+    let locationBtns = document.querySelectorAll('.l-contacts__info-btn .btn');
+    locationBtns.forEach(element => {
+      element.addEventListener("click", (event) => {
+        let coordinate = element.getAttribute('data-coordinate').split(',',2);
+        myMap.setZoom(17);
+        myMap.panTo([+coordinate[0], +coordinate[1]], {
+          delay: 3000,
+          duration: 1000,
+          flying: true,
+        });
+      });
+    });
+  }
+});
