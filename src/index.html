@@ -36,26 +36,30 @@
 						</h4>
 					</div>
 				</div>
-				<div class="l-products__nav">
-					<div class="l-products__nav-wrapper">
-						<ul>
-							<li>
-								<a href="#pr-1" class="fs-16-600">Классическое окно</a>
-							</li>
-							<li>
-								<a href="#pr-2" class="fs-16-600">Французское окно</a>
-							</li>
-							<li>
-								<a href="#pr-3" class="fs-16-600">Скрытая створка</a>
-							</li>
-							<li>
-								<a href="#pr-4" class="fs-16-600">Вентиляционая створка</a>
-							</li>
-							<li>
-								<a href="#pr-5" class="fs-16-600">Алюмодеревянное окно</a>
-							</li>
-						</ul>
+				<div class="l-product__scroll">
+					<button class="horizontal__scroll left scrollLeftButton2"></button>
+					<div class="l-products__nav">
+						<div class="l-products__nav-wrapper">
+							<ul>
+								<li>
+									<a href="#pr-1" class="fs-16-600">Классическое окно</a>
+								</li>
+								<li>
+									<a href="#pr-2" class="fs-16-600">Французское окно</a>
+								</li>
+								<li>
+									<a href="#pr-3" class="fs-16-600">Скрытая створка</a>
+								</li>
+								<li>
+									<a href="#pr-4" class="fs-16-600">Вентиляционая створка</a>
+								</li>
+								<li>
+									<a href="#pr-5" class="fs-16-600">Алюмодеревянное окно</a>
+								</li>
+							</ul>
+						</div>
 					</div>
+					<button class="horizontal__scroll scrollRightButton2"></button>
 				</div>
 				<div class="l-products__content">
 					@@include('components/page-blocks/_products_item.html', {
@@ -170,6 +174,28 @@
 										<p class="fs-14-400 text-dark-gray">Фасады с большой площадью остекления смотрятся стильно и современно. Поэтому при производстве окон «АЛЮТЕХ» используются алюминиевые профили с минимальной видимой шириной и скрытым креплением заполнения. Внутренняя и внешняя части профилей окрашиваются в любой цвет по шкале RAL, анодируются или декорируются.</p>
 									</div>
 								</div>
+								<div class="l-blog__card swiper-slide">
+									<div class="l-blog__card-image">
+										<img src="./img/bl-1.webp" alt="">
+									</div>
+									<div class="l-blog__card-name">
+										<p class="fs-20-600 text-dark-gray">Выглядят стильно</p>
+									</div>
+									<div class="l-blog__card-description">
+										<p class="fs-14-400 text-dark-gray">Фасады с большой площадью остекления смотрятся стильно и современно. Поэтому при производстве окон «АЛЮТЕХ» используются алюминиевые профили с минимальной видимой шириной и скрытым креплением заполнения. Внутренняя и внешняя части профилей окрашиваются в любой цвет по шкале RAL, анодируются или декорируются.</p>
+									</div>
+								</div>
+								<div class="l-blog__card swiper-slide">
+									<div class="l-blog__card-image">
+										<img src="./img/bl-1.webp" alt="">
+									</div>
+									<div class="l-blog__card-name">
+										<p class="fs-20-600 text-dark-gray">Выглядят стильно</p>
+									</div>
+									<div class="l-blog__card-description">
+										<p class="fs-14-400 text-dark-gray">Фасады с большой площадью остекления смотрятся стильно и современно. Поэтому при производстве окон «АЛЮТЕХ» используются алюминиевые профили с минимальной видимой шириной и скрытым креплением заполнения. Внутренняя и внешняя части профилей окрашиваются в любой цвет по шкале RAL, анодируются или декорируются.</p>
+									</div>
+								</div>
 							</div>
 						</div>
 						<div class="l-blog__card-swiper-nav">
@@ -236,9 +262,9 @@
 							<img src="./img/complex.webp" alt="">
 						</div>
 						<div class="l-complex__body-dots">
-							<div class="l-complex__body-dot" style="top: 41%; left: 57%;">
+							<div class="l-complex__body-dot" data-info="info-1" style="top: 41%; left: 57%;">
 								<a href="javascript:void(0);"></a>
-								<div class="l-complex__body-hidden">
+								<div class="l-complex__body-hidden" id="info-1">
 									<div class="l-complex__body-hidden-title">
 										<p class="fs-14-400">Подъемно-раздвижной портал</p>
 									</div>
@@ -247,9 +273,9 @@
 									</div>
 								</div>
 							</div>
-							<div class="l-complex__body-dot" style="top: 63%; left: 42%;">
+							<div class="l-complex__body-dot" data-info="info-2" style="top: 63%; left: 42%;">
 								<a href="javascript:void(0);"></a>
-								<div class="l-complex__body-hidden">
+								<div class="l-complex__body-hidden" id="info-2">
 									<div class="l-complex__body-hidden-title">
 										<p class="fs-14-400">Подъемно-раздвижной портал</p>
 									</div>
@@ -258,9 +284,9 @@
 									</div>
 								</div>
 							</div>
-							<div class="l-complex__body-dot" style="top: 65%; left: 29%">
+							<div class="l-complex__body-dot" data-info="info-3" style="top: 65%; left: 29%">
 								<a href="javascript:void(0);"></a>
-								<div class="l-complex__body-hidden">
+								<div class="l-complex__body-hidden" id="info-3">
 									<div class="l-complex__body-hidden-title">
 										<p class="fs-14-400">Подъемно-раздвижной портал</p>
 									</div>
@@ -269,9 +295,9 @@
 									</div>
 								</div>
 							</div>
-							<div class="l-complex__body-dot" style="top: 51%; left: 29%;">
+							<div class="l-complex__body-dot" data-info="info-4" style="top: 51%; left: 29%;">
 								<a href="javascript:void(0);"></a>
-								<div class="l-complex__body-hidden">
+								<div class="l-complex__body-hidden" id="info-4">
 									<div class="l-complex__body-hidden-title">
 										<p class="fs-14-400">Подъемно-раздвижной портал</p>
 									</div>
@@ -280,6 +306,9 @@
 									</div>
 								</div>
 							</div>
+						</div>
+						<div class="l-mob-info-container">
+							<a href="#" id="complex-body-close"></a>
 						</div>
 					</div>
 				</div>
@@ -295,6 +324,7 @@
 						</div>
 					</div>
 					<div class="l-popular-solutions__tabs popular">
+						<button class="horizontal__scroll left scrollLeftButton"></button>
 						<div class="l-popular-solutions__tabs-wrapper">
 							<ul>
 								<li class="active" data-popul="popul-1">
@@ -311,6 +341,7 @@
 								</li>
 							</ul>
 						</div>
+						<button class="horizontal__scroll scrollRightButton"></button>
 					</div>
 					<div class="l-popular-solutions__cards popular">
 						<div id="popul-1" class="l-popular-solutions__cards-tab swiper active">
@@ -846,12 +877,12 @@
 												<input name="tel" type="text" class="input" placeholder="+7 (___) ___-__-__">
 											</div>
 											<div class="l-modal__form-select-actions">
+												<input type="radio" name="time" id="time-now" checked>
 												<label for="time-now">
-													<input type="radio" name="time" id="time-now">
 													<span>Сейчас</span>
 												</label>
+												<input type="radio" name="time" id="time-exactly">
 												<label for="time-exactly">
-													<input type="radio" name="time" id="time-exactly">
 													<span>Точное время</span>
 												</label>
 												<select name="time" id="">
@@ -862,7 +893,9 @@
 													<option value="11:00">11:00</option>
 												</select>
 											</div>
-											<div class="l-modal__form-action"></div>
+											<div class="l-modal__form-action">
+												<a class="btn btn-black fs-16-600" href="#">Заказать звонок</a>
+											</div>
 										</div>
 									</div>
 								</div>

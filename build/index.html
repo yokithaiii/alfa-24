@@ -12,6 +12,7 @@
 	<link rel="shortcut icon" href="favicon.webp" type="image/webp">
 	<link rel="shortcut icon" href="favicon.png" type="image/x-icon">
 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/css/select2.min.css">
 	<link rel="stylesheet" href="css/hystmodal.min.css">
 	<link rel="stylesheet" href="css/swiper-bundle8.min.css">
 	<link rel="stylesheet" href="css/style.min.css">
@@ -58,26 +59,30 @@
 						</h4>
 					</div>
 				</div>
-				<div class="l-products__nav">
-					<div class="l-products__nav-wrapper">
-						<ul>
-							<li>
-								<a href="#pr-1" class="fs-16-600">Классическое окно</a>
-							</li>
-							<li>
-								<a href="#pr-2" class="fs-16-600">Французское окно</a>
-							</li>
-							<li>
-								<a href="#pr-3" class="fs-16-600">Скрытая створка</a>
-							</li>
-							<li>
-								<a href="#pr-4" class="fs-16-600">Вентиляционая створка</a>
-							</li>
-							<li>
-								<a href="#pr-5" class="fs-16-600">Алюмодеревянное окно</a>
-							</li>
-						</ul>
+				<div class="l-product__scroll">
+					<button class="horizontal__scroll left scrollLeftButton2"></button>
+					<div class="l-products__nav">
+						<div class="l-products__nav-wrapper">
+							<ul>
+								<li>
+									<a href="#pr-1" class="fs-16-600">Классическое окно</a>
+								</li>
+								<li>
+									<a href="#pr-2" class="fs-16-600">Французское окно</a>
+								</li>
+								<li>
+									<a href="#pr-3" class="fs-16-600">Скрытая створка</a>
+								</li>
+								<li>
+									<a href="#pr-4" class="fs-16-600">Вентиляционая створка</a>
+								</li>
+								<li>
+									<a href="#pr-5" class="fs-16-600">Алюмодеревянное окно</a>
+								</li>
+							</ul>
+						</div>
 					</div>
+					<button class="horizontal__scroll scrollRightButton2"></button>
 				</div>
 				<div class="l-products__content">
 					<div id="pr-1" class="l-products__item ">
@@ -252,6 +257,28 @@
 										<p class="fs-14-400 text-dark-gray">Фасады с большой площадью остекления смотрятся стильно и современно. Поэтому при производстве окон «АЛЮТЕХ» используются алюминиевые профили с минимальной видимой шириной и скрытым креплением заполнения. Внутренняя и внешняя части профилей окрашиваются в любой цвет по шкале RAL, анодируются или декорируются.</p>
 									</div>
 								</div>
+								<div class="l-blog__card swiper-slide">
+									<div class="l-blog__card-image">
+										<img src="./img/bl-1.webp" alt="">
+									</div>
+									<div class="l-blog__card-name">
+										<p class="fs-20-600 text-dark-gray">Выглядят стильно</p>
+									</div>
+									<div class="l-blog__card-description">
+										<p class="fs-14-400 text-dark-gray">Фасады с большой площадью остекления смотрятся стильно и современно. Поэтому при производстве окон «АЛЮТЕХ» используются алюминиевые профили с минимальной видимой шириной и скрытым креплением заполнения. Внутренняя и внешняя части профилей окрашиваются в любой цвет по шкале RAL, анодируются или декорируются.</p>
+									</div>
+								</div>
+								<div class="l-blog__card swiper-slide">
+									<div class="l-blog__card-image">
+										<img src="./img/bl-1.webp" alt="">
+									</div>
+									<div class="l-blog__card-name">
+										<p class="fs-20-600 text-dark-gray">Выглядят стильно</p>
+									</div>
+									<div class="l-blog__card-description">
+										<p class="fs-14-400 text-dark-gray">Фасады с большой площадью остекления смотрятся стильно и современно. Поэтому при производстве окон «АЛЮТЕХ» используются алюминиевые профили с минимальной видимой шириной и скрытым креплением заполнения. Внутренняя и внешняя части профилей окрашиваются в любой цвет по шкале RAL, анодируются или декорируются.</p>
+									</div>
+								</div>
 							</div>
 						</div>
 						<div class="l-blog__card-swiper-nav">
@@ -318,9 +345,9 @@
 							<img src="./img/complex.webp" alt="">
 						</div>
 						<div class="l-complex__body-dots">
-							<div class="l-complex__body-dot" style="top: 41%; left: 57%;">
+							<div class="l-complex__body-dot" data-info="info-1" style="top: 41%; left: 57%;">
 								<a href="javascript:void(0);"></a>
-								<div class="l-complex__body-hidden">
+								<div class="l-complex__body-hidden" id="info-1">
 									<div class="l-complex__body-hidden-title">
 										<p class="fs-14-400">Подъемно-раздвижной портал</p>
 									</div>
@@ -329,9 +356,9 @@
 									</div>
 								</div>
 							</div>
-							<div class="l-complex__body-dot" style="top: 63%; left: 42%;">
+							<div class="l-complex__body-dot" data-info="info-2" style="top: 63%; left: 42%;">
 								<a href="javascript:void(0);"></a>
-								<div class="l-complex__body-hidden">
+								<div class="l-complex__body-hidden" id="info-2">
 									<div class="l-complex__body-hidden-title">
 										<p class="fs-14-400">Подъемно-раздвижной портал</p>
 									</div>
@@ -340,9 +367,9 @@
 									</div>
 								</div>
 							</div>
-							<div class="l-complex__body-dot" style="top: 65%; left: 29%">
+							<div class="l-complex__body-dot" data-info="info-3" style="top: 65%; left: 29%">
 								<a href="javascript:void(0);"></a>
-								<div class="l-complex__body-hidden">
+								<div class="l-complex__body-hidden" id="info-3">
 									<div class="l-complex__body-hidden-title">
 										<p class="fs-14-400">Подъемно-раздвижной портал</p>
 									</div>
@@ -351,9 +378,9 @@
 									</div>
 								</div>
 							</div>
-							<div class="l-complex__body-dot" style="top: 51%; left: 29%;">
+							<div class="l-complex__body-dot" data-info="info-4" style="top: 51%; left: 29%;">
 								<a href="javascript:void(0);"></a>
-								<div class="l-complex__body-hidden">
+								<div class="l-complex__body-hidden" id="info-4">
 									<div class="l-complex__body-hidden-title">
 										<p class="fs-14-400">Подъемно-раздвижной портал</p>
 									</div>
@@ -362,6 +389,9 @@
 									</div>
 								</div>
 							</div>
+						</div>
+						<div class="l-mob-info-container">
+							<a href="#" id="complex-body-close"></a>
 						</div>
 					</div>
 				</div>
@@ -377,6 +407,7 @@
 						</div>
 					</div>
 					<div class="l-popular-solutions__tabs popular">
+						<button class="horizontal__scroll left scrollLeftButton"></button>
 						<div class="l-popular-solutions__tabs-wrapper">
 							<ul>
 								<li class="active" data-popul="popul-1">
@@ -393,6 +424,7 @@
 								</li>
 							</ul>
 						</div>
+						<button class="horizontal__scroll scrollRightButton"></button>
 					</div>
 					<div class="l-popular-solutions__cards popular">
 						<div id="popul-1" class="l-popular-solutions__cards-tab swiper active">
@@ -928,12 +960,12 @@
 												<input name="tel" type="text" class="input" placeholder="+7 (___) ___-__-__">
 											</div>
 											<div class="l-modal__form-select-actions">
+												<input type="radio" name="time" id="time-now" checked>
 												<label for="time-now">
-													<input type="radio" name="time" id="time-now">
 													<span>Сейчас</span>
 												</label>
+												<input type="radio" name="time" id="time-exactly">
 												<label for="time-exactly">
-													<input type="radio" name="time" id="time-exactly">
 													<span>Точное время</span>
 												</label>
 												<select name="time" id="">
@@ -944,7 +976,9 @@
 													<option value="11:00">11:00</option>
 												</select>
 											</div>
-											<div class="l-modal__form-action"></div>
+											<div class="l-modal__form-action">
+												<a class="btn btn-black fs-16-600" href="#">Заказать звонок</a>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -954,13 +988,199 @@
 		</div>
 
 	</main>
-	<footer class="footer"></footer>
+	<footer class="footer">
+  <div class="l-mob-footer__nav">
+    <div class="l-mob-footer__nav-wrapper">
+      <div class="l-mob-footer__nav-item">
+        <a href="#">
+          <svg>
+            <use xlink:href="img/sprite.svg#sprite--calc-mob" />
+          </svg>
+          Рассчитать
+        </a>
+      </div>
+      <div class="l-mob-footer__nav-item">
+        <a href="#" id="openAdressesModalButton">
+          <svg>
+            <use xlink:href="img/sprite.svg#sprite--loca-mob" />
+          </svg>
+          Шоу-румы
+        </a>
+      </div>
+      <div class="l-mob-footer__nav-item">
+        <a href="#" id="openModalButton">
+          <svg>
+            <use xlink:href="img/sprite.svg#sprite--tel-mob" />
+          </svg>
+          Звонок
+        </a>
+      </div>
+      <div class="l-mob-footer__nav-item">
+        <a href="#" id="openSearchModalButton">
+          <svg>
+            <use xlink:href="img/sprite.svg#sprite--search-mob" />
+          </svg>
+          Поиск
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
 
+<div id="callMemModalMob" class="modal-container">
+  <div class="modal-content">
+    <div class="l-mob-modal__content">
+      <button id="closeModalButton">
+        <div class="rec"></div>
+      </button>
+      <div class="l-mob-modal__info">
+        <p class="title">Телефон</p>
+        <a class="tel" href="tel: +7 (495) 154-07-85">+7 (495) 154-07-85</a>
+        <p class="time">Пн-Пт: 9:00-18:00</p>
+      </div>
+    </div>
+    <div class="l-mob-modal__form">
+      <div class="l-modal__form-title">
+        <h2 class="fs-32-700">Заказать обратный звонок</h2>
+      </div>
+      <div class="l-modal__form-subtitle">
+        <h4 class="fs-16-300">Оставьте свой номер и мы перезвоним вам </h4>
+      </div>
+      <div class="l-modal__form-input">
+        <input name="tel" type="text" class="input" placeholder="+7 (___) ___-__-__">
+      </div>
+      <div class="l-modal__form-select-actions">
+        <input type="radio" name="time" id="time-now--mob" checked>
+        <label for="time-now--mob">
+          <span>Сейчас</span>
+        </label>
+        <input type="radio" name="time" id="time-exactly--mob">
+        <label for="time-exactly--mob">
+          <span>Точное время</span>
+        </label>
+        <select name="time" id="">
+          <option value="9:00" selected>9:00</option>
+          <option value="9:30">9:30</option>
+          <option value="10:00">10:00</option>
+          <option value="10:30">10:30</option>
+          <option value="11:00">11:00</option>
+        </select>
+      </div>
+      <div class="l-modal__form-action">
+        <a class="btn btn-black fs-16-600" href="#">Заказать звонок</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="searchModalMob" class="modal-container">
+  <div class="modal-content">
+    <div class="l-mob-modal__content">
+      <button id="closeSearchModalButton">
+        <div class="rec"></div>
+      </button>
+      <div class="l-mob-modal__header">
+        <div class="l-modal__form-title">
+          <h2 class="fs-32-700">Поиск</h2>
+        </div>
+      </div>
+    </div>
+    <div class="l-mob-modal__form">
+      <div class="l-modal__form-input">
+        <label for="search">
+          <svg>
+            <use xlink:href="img/sprite.svg#sprite--search-mob" />
+          </svg>
+        </label>
+        <input name="q" type="text" class="input" id="search" placeholder="Поиск по сайту">
+        <a href="#" class="clear">
+          <svg>
+            <use xlink:href="img/sprite.svg#sprite--search-mob-clear" />
+          </svg>
+        </a>
+      </div>
+      <div class="l-modal__form-action">
+        <a class="btn btn-black fs-16-600" href="#">Искать</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="adressesModalMob" class="modal-container">
+  <div class="modal-content">
+    <div class="l-mob-modal__content">
+      <button id="closeAdressesModalButton">
+        <div class="rec"></div>
+      </button>
+      <div class="l-mob-modal__header">
+        <div class="l-modal__form-title">
+          <div class="arrow">
+            <svg>
+              <use xlink:href="img/sprite.svg#sprite--alfa24_arrow" />
+            </svg>
+          </div>
+          <h2 class="fs-32-700">Адреса шоу-румов</h2>
+        </div>
+      </div>
+    </div>
+    <div class="l-mob-modal__addresses">
+      <div class="l-contacts__item">
+        <div class="l-contacts__item-img">
+          <img src="./img/contacts-1.webp" alt="">
+        </div>
+        <div class="l-contacts__item-text">
+          <span>1</span>
+          <a href="#" class="fs-16-400 text-dark-gray">
+            Москва, БЦ Водный, <br>
+            Головинское шоссе 5а
+          </a>
+        </div>
+      </div>
+      <div class="l-contacts__item">
+        <div class="l-contacts__item-img">
+          <img src="./img/contacts-2.webp" alt="">
+        </div>
+        <div class="l-contacts__item-text">
+          <span>2</span>
+          <a href="#" class="fs-16-400 text-dark-gray">
+            ARTPLAY, <br>
+            Нижняя Сыромятническая ул.10,стр.3
+          </a>
+        </div>
+      </div>
+      <div class="l-contacts__item">
+        <div class="l-contacts__item-img">
+          <img src="./img/contacts-3.webp" alt="">
+        </div>
+        <div class="l-contacts__item-text">
+          <span>3</span>
+          <a href="#" class="fs-16-400 text-dark-gray">
+            Мытищи, <br>
+            3-я крестьянская, с 23
+          </a>
+        </div>
+      </div>
+      <div class="l-contacts__item">
+        <div class="l-contacts__item-img">
+          <img src="./img/contacts-4.webp" alt="">
+        </div>
+        <div class="l-contacts__item-text">
+          <span>4</span>
+          <a href="#" class="fs-16-400 text-dark-gray">
+            МО, Ленинский р-н, <br>
+            пос Развилка, вл 8, оф 35
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 	<script src="https://api-maps.yandex.ru/2.1/?apikey=211471a2-899c-473e-80b2-b22d00306a9e&lang=ru_RU"></script>
 <script src="js/hystmodal.min.js"></script>
 <script src="js/jquery-3.7.0.min.js"></script>
 <script src="js/jquery.maskedinput.min.js"></script>
 <script src="js/swiper-bundle8.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/js/select2.min.js"></script>
 <script src="js/main.min.js"></script>
 
 </body>

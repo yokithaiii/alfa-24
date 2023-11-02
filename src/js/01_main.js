@@ -163,14 +163,72 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
   });
+
+  const scrollRightButton = document.querySelector(".scrollRightButton");
+  const scrollLeftButton = document.querySelector(".scrollLeftButton");
+  const scrollContainer = document.querySelector(".l-popular-solutions__tabs-wrapper");
+  
+  scrollRightButton.addEventListener("click", () => {
+    scrollContainer.scrollBy({ left: 200, behavior: "smooth" });
+  
+    // Проверяем, достигли ли мы максимума влево или вправо, и скрываем соответствующую кнопку при необходимости
+    const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+    if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= maxScrollLeft) {
+      scrollRightButton.style.display = "none";
+    }
+    if (scrollContainer.scrollLeft > 0) {
+      scrollLeftButton.style.display = "block";
+    }
+  });
+  
+  scrollLeftButton.addEventListener("click", () => {
+    scrollContainer.scrollBy({ left: -200, behavior: "smooth" });
+  
+    // Проверяем, достигли ли мы максимума влево или вправо, и скрываем соответствующую кнопку при необходимости
+    if (scrollContainer.scrollLeft <= 0) {
+      scrollLeftButton.style.display = "none";
+    }
+    if (scrollContainer.scrollLeft + scrollContainer.clientWidth < scrollContainer.scrollWidth) {
+      scrollRightButton.style.display = "block";
+    }
+  });
+
+  const scrollRightButton2 = document.querySelector(".scrollRightButton2");
+  const scrollLeftButton2 = document.querySelector(".scrollLeftButton2");
+  const scrollContainer2 = document.querySelector(".l-products__nav");
+
+  scrollRightButton2.addEventListener("click", () => {
+    scrollContainer2.scrollBy({ left: 200, behavior: "smooth" });
+  
+    // Проверяем, достигли ли мы максимума влево или вправо, и скрываем соответствующую кнопку при необходимости
+    const maxScrollLeft = scrollContainer2.scrollWidth - scrollContainer2.clientWidth;
+    if (scrollContainer2.scrollLeft + scrollContainer2.clientWidth >= maxScrollLeft) {
+      scrollRightButton2.style.display = "none";
+    }
+    if (scrollContainer2.scrollLeft > 0) {
+      scrollLeftButton2.style.display = "block";
+    }
+  });
+  
+  scrollLeftButton2.addEventListener("click", () => {
+    scrollContainer2.scrollBy({ left: -200, behavior: "smooth" });
+  
+    // Проверяем, достигли ли мы максимума влево или вправо, и скрываем соответствующую кнопку при необходимости
+    if (scrollContainer2.scrollLeft <= 0) {
+      scrollLeftButton2.style.display = "none";
+    }
+    if (scrollContainer2.scrollLeft + scrollContainer2.clientWidth < scrollContainer2.scrollWidth) {
+      scrollRightButton2.style.display = "block";
+    }
+  });
+
 });
-
-
 
 
 const swiperBlog = new Swiper('.l-blog__slider .swiper', {
   spaceBetween: 18,
   slidesPerView: 3,
+  slidesPerGroup: 3,
   speed: 1000,
   navigation: {
     nextEl: '.l-blog__slider .l-blog__card-swiper-next',
@@ -180,16 +238,19 @@ const swiperBlog = new Swiper('.l-blog__slider .swiper', {
     // when window width is >= 320px
     320: {
       slidesPerView: 1,
+      slidesPerGroup: 1,
       spaceBetween: 18
     },
     // when window width is >= 480px
     768: {
       slidesPerView: 2,
+      slidesPerGroup: 2,
       spaceBetween: 18
     },
     // when window width is >= 640px
     1024: {
       slidesPerView: 3,
+      slidesPerGroup: 3,
       spaceBetween: 18
     }
   }
@@ -317,7 +378,14 @@ const swiperRecommended = new Swiper('.l-recommended__slider .swiper', {
 
 
 const dots = document.querySelectorAll('.l-complex__body-dot');
+
 document.addEventListener('click', function(event) {
+  const previousActiveBlock = document.querySelector(".l-complex__body-hidden.active");
+
+  if (previousActiveBlock) {
+    previousActiveBlock.classList.remove("active");
+  }
+  infoContainer.classList.remove('active');
   dots.forEach(dot => {
     dot.classList.remove('active');
     dot.classList.remove('stop');
@@ -333,8 +401,62 @@ dots.forEach(el => {
     });
     el.classList.add('stop');
     el.classList.add('active');
+
+    const infoId = el.getAttribute("data-info");
+    showInfoBlock(infoId);
   });
 });
+
+
+const infoContainer = document.querySelector(".l-mob-info-container");
+const infoBlocks = document.querySelectorAll(".l-complex__body-hidden");
+const closeBtn = document.getElementById("complex-body-close");
+
+closeBtn.addEventListener('click', function(e) {
+  e.preventDefault();
+  const previousActiveBlock = document.querySelector(".l-complex__body-hidden.active");
+
+  if (previousActiveBlock) {
+    previousActiveBlock.classList.remove("active");
+  }
+  infoContainer.classList.remove('active');
+});
+
+function showInfoBlock(infoId) {
+  
+  // Находим предыдущий активный блок
+  const previousActiveBlock = document.querySelector(".l-complex__body-hidden.active");
+
+  if (previousActiveBlock) {
+    previousActiveBlock.classList.remove("active");
+  }
+
+  // Находим соответствующий блок по его id
+  const infoBlock = document.getElementById(infoId);
+
+  // Проверяем, существует ли блок и добавляем класс "active" к нему
+  if (infoBlock) {
+    infoBlock.classList.add("active");
+    infoContainer.classList.add('active');
+  }
+}
+
+function moveInfoBlocks() {
+  // Проверяем ширину экрана
+  if (window.innerWidth <= 768) {
+    // Перебираем все infoBlocks и перемещаем их в соответствующие infoContainers
+    infoBlocks.forEach((infoBlock, index) => {
+      infoContainer.appendChild(infoBlock);
+    });
+  }
+}
+
+// Вызываем функцию при загрузке страницы и при изменении размера окна
+moveInfoBlocks();
+window.addEventListener("resize", moveInfoBlocks);
+
+
+
 
 $("[name='tel']").mask("+7 (999) 999-99-99");
 
@@ -380,6 +502,111 @@ const myModal = new HystModal({
   // настройки (не обязательно), см. API
 });
 
+$('.l-modal select').select2({
+  minimumResultsForSearch: Infinity,
+  dropdownAutoWidth: true,
+  dropdownPosition: 'below'
+});
+const radio1 = $("input#time-now");
+const radio2 = $("input#time-exactly");
+const mySelect = $(".l-modal .select2");
+
+radio1.click(function() {
+  mySelect.hide();
+});
+
+radio2.click(function() {
+  mySelect.show();
+});
+
+//mob modal
+$('.modal-content .clear').click(function(e) {
+  e.preventDefault();
+  $('input[name="q"]').val('');
+});
+
+$('.l-mob-modal__form select').select2({
+  minimumResultsForSearch: Infinity,
+  dropdownAutoWidth: true,
+  dropdownPosition: 'below'
+});
+const radio1Mob = $("input#time-now--mob");
+const radio2Mob = $("input#time-exactly--mob");
+const mySelectMob = $(".l-mob-modal__form .select2");
+
+radio1Mob.click(function() {
+  mySelectMob.hide();
+});
+
+radio2Mob.click(function() {
+  mySelectMob.show();
+});
+
+function openModal(modal, closeModalButton) {
+  modal.style.display = "flex";
+  document.body.classList.add("modal-open");
+  setTimeout(() => {
+    modal.classList.add("open");
+  }, 10);
+}
+
+function closeModal(modal, closeModalButton) {
+  modal.classList.remove("open");
+  document.body.classList.remove("modal-open");
+  setTimeout(() => {
+    modal.style.display = "none";
+  }, 500);
+}
+
+const openModalButton = document.getElementById("openModalButton");
+const modalContainer = document.getElementById("callMemModalMob");
+const closeModalButton = document.getElementById("closeModalButton");
+openModalButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  openModal(modalContainer, closeModalButton);
+});
+closeModalButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  closeModal(modalContainer, closeModalButton);
+});
+
+const openSearchModalButton = document.getElementById("openSearchModalButton");
+const modalSearchContainer = document.getElementById("searchModalMob");
+const closeSearchModalButton = document.getElementById("closeSearchModalButton");
+openSearchModalButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  openModal(modalSearchContainer, closeSearchModalButton);
+});
+closeSearchModalButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  closeModal(modalSearchContainer, closeSearchModalButton);
+});
+
+const openAdressesModalButton = document.getElementById("openAdressesModalButton");
+const modalAdressesContainer = document.getElementById("adressesModalMob");
+const closeAdressesModalButton = document.getElementById("closeAdressesModalButton");
+const closeAdressesModalButton2 = document.querySelector("#adressesModalMob .arrow");
+
+openAdressesModalButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  openModal(modalAdressesContainer, closeAdressesModalButton);
+});
+closeAdressesModalButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  closeModal(modalAdressesContainer, closeAdressesModalButton);
+});
+closeAdressesModalButton2.addEventListener("click", (e) => {
+  e.preventDefault();
+  closeModal(modalAdressesContainer, closeAdressesModalButton2);
+});
+
+
+
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", function(event) {
   ymaps.ready(init);
 
@@ -411,18 +638,5 @@ document.addEventListener("DOMContentLoaded", function(event) {
     myMap.geoObjects.add(myPlacemark2);
     myMap.geoObjects.add(myPlacemark3);
     myMap.geoObjects.add(myPlacemark4);
-  
-    let locationBtns = document.querySelectorAll('.l-contacts__info-btn .btn');
-    locationBtns.forEach(element => {
-      element.addEventListener("click", (event) => {
-        let coordinate = element.getAttribute('data-coordinate').split(',',2);
-        myMap.setZoom(17);
-        myMap.panTo([+coordinate[0], +coordinate[1]], {
-          delay: 3000,
-          duration: 1000,
-          flying: true,
-        });
-      });
-    });
   }
 });
