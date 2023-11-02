@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
 
         for (let [key, container] of this.containers.entries()) {
-          console.log(key,name);
             if (key === name) {
                 container.removeAttribute('hidden');
                 container.classList.add('active');
@@ -128,9 +127,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 document.addEventListener("DOMContentLoaded", function() {
   const sections = document.querySelectorAll(".l-products__content .l-products__item");
+  const sections2 = document.querySelectorAll("section[data-anchor]");
   const navLinks = document.querySelectorAll(".l-products__nav-wrapper a");
 
-  const sectionOffsets = Array.from(sections).map(section => section.offsetTop);
+  if (sections.length > 0) {
+    var sectionOffsets = Array.from(sections).map(section => section.offsetTop);
+  }
+
+  if (sections2.length > 0) {
+    var sectionOffsets = Array.from(sections2).map(section => section.offsetTop);
+  }
 
   let offsetMargin = window.innerWidth >= 426 ? 350 : 0;
   let offsetMarginLink = window.innerWidth >= 426 ? 150 : 50;
@@ -168,59 +174,69 @@ document.addEventListener("DOMContentLoaded", function() {
   const scrollLeftButton = document.querySelector(".scrollLeftButton");
   const scrollContainer = document.querySelector(".l-popular-solutions__tabs-wrapper");
   
-  scrollRightButton.addEventListener("click", () => {
-    scrollContainer.scrollBy({ left: 200, behavior: "smooth" });
+  if (scrollRightButton) {
+    scrollRightButton.addEventListener("click", () => {
+      scrollContainer.scrollBy({ left: 200, behavior: "smooth" });
+    
+      // Проверяем, достигли ли мы максимума влево или вправо, и скрываем соответствующую кнопку при необходимости
+      const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+      if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= maxScrollLeft) {
+        scrollRightButton.style.display = "none";
+      }
+      if (scrollContainer.scrollLeft > 0) {
+        scrollLeftButton.style.display = "block";
+      }
+    });
+  }
+
+  if (scrollLeftButton) {
+    scrollLeftButton.addEventListener("click", () => {
+      scrollContainer.scrollBy({ left: -200, behavior: "smooth" });
+    
+      // Проверяем, достигли ли мы максимума влево или вправо, и скрываем соответствующую кнопку при необходимости
+      if (scrollContainer.scrollLeft <= 0) {
+        scrollLeftButton.style.display = "none";
+      }
+      if (scrollContainer.scrollLeft + scrollContainer.clientWidth < scrollContainer.scrollWidth) {
+        scrollRightButton.style.display = "block";
+      }
+    });
+  }
   
-    // Проверяем, достигли ли мы максимума влево или вправо, и скрываем соответствующую кнопку при необходимости
-    const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-    if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= maxScrollLeft) {
-      scrollRightButton.style.display = "none";
-    }
-    if (scrollContainer.scrollLeft > 0) {
-      scrollLeftButton.style.display = "block";
-    }
-  });
-  
-  scrollLeftButton.addEventListener("click", () => {
-    scrollContainer.scrollBy({ left: -200, behavior: "smooth" });
-  
-    // Проверяем, достигли ли мы максимума влево или вправо, и скрываем соответствующую кнопку при необходимости
-    if (scrollContainer.scrollLeft <= 0) {
-      scrollLeftButton.style.display = "none";
-    }
-    if (scrollContainer.scrollLeft + scrollContainer.clientWidth < scrollContainer.scrollWidth) {
-      scrollRightButton.style.display = "block";
-    }
-  });
 
   const scrollRightButton2 = document.querySelector(".scrollRightButton2");
   const scrollLeftButton2 = document.querySelector(".scrollLeftButton2");
   const scrollContainer2 = document.querySelector(".l-products__nav");
 
-  scrollRightButton2.addEventListener("click", () => {
-    scrollContainer2.scrollBy({ left: 200, behavior: "smooth" });
+  if (scrollRightButton2) {
+    scrollRightButton2.addEventListener("click", () => {
+      scrollContainer2.scrollBy({ left: 200, behavior: "smooth" });
+    
+      // Проверяем, достигли ли мы максимума влево или вправо, и скрываем соответствующую кнопку при необходимости
+      const maxScrollLeft = scrollContainer2.scrollWidth - scrollContainer2.clientWidth;
+      if (scrollContainer2.scrollLeft + scrollContainer2.clientWidth >= maxScrollLeft) {
+        scrollRightButton2.style.display = "none";
+      }
+      if (scrollContainer2.scrollLeft > 0) {
+        scrollLeftButton2.style.display = "block";
+      }
+    });
+  }
+
+  if (scrollLeftButton2) {
+    scrollLeftButton2.addEventListener("click", () => {
+      scrollContainer2.scrollBy({ left: -200, behavior: "smooth" });
+    
+      // Проверяем, достигли ли мы максимума влево или вправо, и скрываем соответствующую кнопку при необходимости
+      if (scrollContainer2.scrollLeft <= 0) {
+        scrollLeftButton2.style.display = "none";
+      }
+      if (scrollContainer2.scrollLeft + scrollContainer2.clientWidth < scrollContainer2.scrollWidth) {
+        scrollRightButton2.style.display = "block";
+      }
+    });
+  }
   
-    // Проверяем, достигли ли мы максимума влево или вправо, и скрываем соответствующую кнопку при необходимости
-    const maxScrollLeft = scrollContainer2.scrollWidth - scrollContainer2.clientWidth;
-    if (scrollContainer2.scrollLeft + scrollContainer2.clientWidth >= maxScrollLeft) {
-      scrollRightButton2.style.display = "none";
-    }
-    if (scrollContainer2.scrollLeft > 0) {
-      scrollLeftButton2.style.display = "block";
-    }
-  });
-  
-  scrollLeftButton2.addEventListener("click", () => {
-    scrollContainer2.scrollBy({ left: -200, behavior: "smooth" });
-  
-    // Проверяем, достигли ли мы максимума влево или вправо, и скрываем соответствующую кнопку при необходимости
-    if (scrollContainer2.scrollLeft <= 0) {
-      scrollLeftButton2.style.display = "none";
-    }
-    if (scrollContainer2.scrollLeft + scrollContainer2.clientWidth < scrollContainer2.scrollWidth) {
-      scrollRightButton2.style.display = "block";
-    }
-  });
 
 });
 
@@ -376,6 +392,79 @@ const swiperRecommended = new Swiper('.l-recommended__slider .swiper', {
   }
 });
 
+const swiperTabNav = new Swiper('.l-product__detail-cards.unique .swiper', {
+  spaceBetween: 15,
+  slidesPerView: 3,
+  navigation: {
+    nextEl: '.types .l-blog__card-swiper-next',
+    prevEl: '.types .l-blog__card-swiper-prev',
+  },
+  breakpoints: {
+    320: {
+      slidesPerView: 3,
+      spaceBetween: 10
+    },
+    768: {
+      slidesPerView: 3,
+      spaceBetween: 18
+    },
+  }
+});
+
+const swiperTabsU = document.querySelectorAll('#assortment .l-product__detail-cards.unique-color .swiper');
+var k = 2;
+swiperTabsU.forEach(el => {
+  const swiperrU = new Swiper(el, {
+    spaceBetween: 10,
+    slidesPerView: 3,
+    navigation: {
+      nextEl: '[data-tab="tab'+k+'"] .color .l-blog__card-swiper-next',
+      prevEl: '[data-tab="tab'+k+'"] .color .l-blog__card-swiper-prev',
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 3,
+        spaceBetween: 10
+      },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 10
+      },
+      1023: {
+        slidesPerView: 4,
+        spaceBetween: 10
+      },
+      1439: {
+        slidesPerView: 5,
+        spaceBetween: 10
+      },
+    }
+  });
+  k++;
+});
+
+const swiperTabNav2 = new Swiper('#accessories .l-product__detail-cards.unique-color .swiper', {
+  spaceBetween: 10,
+  slidesPerView: 3,
+  navigation: {
+    nextEl: '[data-tab="tab1"] .color .l-blog__card-swiper-next',
+    prevEl: '[data-tab="tab1"] .color .l-blog__card-swiper-prev',
+  },
+  breakpoints: {
+    320: {
+      slidesPerView: 3,
+      spaceBetween: 10
+    },
+    768: {
+      slidesPerView: 'auto',
+      spaceBetween: 10
+    },
+  }
+});
+
+
+
+
 
 const dots = document.querySelectorAll('.l-complex__body-dot');
 
@@ -385,7 +474,11 @@ document.addEventListener('click', function(event) {
   if (previousActiveBlock) {
     previousActiveBlock.classList.remove("active");
   }
-  infoContainer.classList.remove('active');
+
+  if (infoContainer) {
+    infoContainer.classList.remove('active');
+  }
+
   dots.forEach(dot => {
     dot.classList.remove('active');
     dot.classList.remove('stop');
@@ -412,15 +505,17 @@ const infoContainer = document.querySelector(".l-mob-info-container");
 const infoBlocks = document.querySelectorAll(".l-complex__body-hidden");
 const closeBtn = document.getElementById("complex-body-close");
 
-closeBtn.addEventListener('click', function(e) {
-  e.preventDefault();
-  const previousActiveBlock = document.querySelector(".l-complex__body-hidden.active");
-
-  if (previousActiveBlock) {
-    previousActiveBlock.classList.remove("active");
-  }
-  infoContainer.classList.remove('active');
-});
+if (closeBtn) {
+  closeBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    const previousActiveBlock = document.querySelector(".l-complex__body-hidden.active");
+  
+    if (previousActiveBlock) {
+      previousActiveBlock.classList.remove("active");
+    }
+    infoContainer.classList.remove('active');
+  });
+}
 
 function showInfoBlock(infoId) {
   

@@ -500,7 +500,7 @@
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: unset;
   }
 }
 
@@ -665,6 +665,9 @@
 
 .l-popular-solutions__content {
   padding-top: 116px;
+  .l-complex__header-subtitle {
+    max-width: 701px;
+  }
   @media screen and (max-width: 768px) {
     padding-top: 55px;
   }
