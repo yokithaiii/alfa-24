@@ -11,8 +11,8 @@ exports.libs_js = tasks.libs_js;
 exports.dev_js = tasks.dev_js;
 exports.html = tasks.html;
 exports.php = tasks.php;
-exports.rastr = tasks.rastr;
-exports.webp = tasks.webp;
+// exports.rastr = tasks.rastr;
+// exports.webp = tasks.webp;
 exports.svg_sprite = tasks.svg_sprite;
 exports.ttf = tasks.ttf;
 exports.ttf2 = tasks.ttf2;
@@ -30,8 +30,8 @@ exports.default = gulp.parallel(
   exports.style,
   exports.libs_js,
   exports.dev_js,
-  exports.rastr,
-  exports.webp,
+  // exports.rastr,
+  // exports.webp,
   exports.svg_sprite,
   exports.html,
   exports.bs_html,
@@ -46,8 +46,8 @@ exports.dev_php = gulp.parallel(
   exports.style,
   exports.libs_js,
   exports.dev_js,
-  exports.rastr,
-  exports.webp,
+  // exports.rastr,
+  // exports.webp,
   exports.svg_sprite,
   exports.php,
   exports.bs_php,
