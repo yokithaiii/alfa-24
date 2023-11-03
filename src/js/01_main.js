@@ -435,7 +435,7 @@ swiperTabsU.forEach(el => {
         spaceBetween: 10
       },
       1439: {
-        slidesPerView: 5,
+        slidesPerView: 'auto',
         spaceBetween: 10
       },
     }

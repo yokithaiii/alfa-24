@@ -544,6 +544,15 @@
       margin-top: 35px;
     }
   }
+  .unique {
+    .swiper {
+      margin: 0;
+      width: 100%;
+    }
+    .swiper-slide {
+      width: auto;
+    }
+  }
   .l-product__detail-card {
     width: 141px;
     height: 90px;
