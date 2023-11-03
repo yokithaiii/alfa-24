@@ -653,12 +653,18 @@
       .l-blog__card-swiper-next {
         top: 8px;
         &.swiper-button-disabled {
+          @media screen and (max-width: 768px) {
+            display: flex;
+          }
           display: none;
         }
       }
       .l-blog__card-swiper-prev {
         top: 8px;
         &.swiper-button-disabled {
+          @media screen and (max-width: 768px) {
+            display: flex;
+          }
           display: none;
         }
       }

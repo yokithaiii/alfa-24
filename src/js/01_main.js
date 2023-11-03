@@ -502,7 +502,7 @@ dots.forEach(el => {
 
 
 const infoContainer = document.querySelector(".l-mob-info-container");
-const infoBlocks = document.querySelectorAll(".l-complex__body-hidden");
+const infoBlocks = document.querySelectorAll(".l-complex .l-complex__body-hidden");
 const closeBtn = document.getElementById("complex-body-close");
 
 if (closeBtn) {
@@ -643,6 +643,8 @@ function openModal(modal, closeModalButton) {
   setTimeout(() => {
     modal.classList.add("open");
   }, 10);
+
+  document.addEventListener("click", outsideClickHandler);
 }
 
 function closeModal(modal, closeModalButton) {
@@ -651,6 +653,21 @@ function closeModal(modal, closeModalButton) {
   setTimeout(() => {
     modal.style.display = "none";
   }, 500);
+
+  document.removeEventListener("click", outsideClickHandler);
+}
+
+function outsideClickHandler(event) {
+  const modal1 = document.getElementById("callMemModalMob");
+  const modal2 = document.getElementById("searchModalMob");
+  const modal3 = document.getElementById("adressesModalMob");
+  if (event.target === modal1) {
+    closeModal(modal1);
+  } else if (event.target === modal2) {
+    closeModal(modal2);
+  } else if (event.target === modal3) {
+    closeModal(modal3);
+  }
 }
 
 const openModalButton = document.getElementById("openModalButton");
